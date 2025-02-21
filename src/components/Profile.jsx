@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+// 프로젝트 이미지 import
+import vueShopImage from '../assets/projects/vue-shop.png';
+import reactNativeAppImage from '../assets/projects/react-native-app.png';
+import portfolioImage from '../assets/projects/portfolio.png';
 
 const Profile = () => {
   const [imageUrl, setImageUrl] = useState("https://i.pravatar.cc/300");
@@ -14,6 +18,47 @@ const Profile = () => {
       reader.readAsDataURL(file);
     }
   };
+
+  const projects = [
+    {
+      id: 1,
+      title: "POTLESS",
+      description: "포트홀 자동 탐지 AI 및 도로 파손 통합 관리 시스템. Vue.js와 Spring Boot를 활용한 웹 애플리케이션입니다.",
+      image: "/projects/potless/thumbnail.png",
+      demoUrl: "/projects/potless/demo",  // 정적 데모 페이지 경로
+      sourceCode: "https://github.com/chajunseok/potless",
+      skills: ["Vue.js", "Spring Boot", "MySQL", "FastAPI", "Flutter"]
+    },
+    {
+      id: 2,
+      title: "React Native 모바일 앱",
+      description: "React Native로 개발한 크로스 플랫폼 모바일 애플리케이션입니다. iOS와 Android 모두 지원합니다.",
+      image: reactNativeAppImage,
+      projectUrl: "/projects/react-native-app",
+      sourceCode: "https://github.com/chajunseok/react-native-app",
+      skills: ["React Native", "Expo", "Redux"]
+    },
+    {
+      id: 3,
+      title: "React 포트폴리오",
+      description: "React와 Styled Components를 사용한 개인 포트폴리오 웹사이트입니다.",
+      image: portfolioImage,
+      projectUrl: "/projects/portfolio",
+      sourceCode: "https://github.com/chajunseok/portfolio",
+      skills: ["React", "Styled Components"]
+    }
+  ];
+
+  // 기술 스택별 필터링을 위한 상태 추가
+  const [selectedTech, setSelectedTech] = useState('all');
+
+  // 모든 기술 스택 추출
+  const allTechnologies = ['all', ...new Set(projects.flatMap(project => project.skills))];
+
+  // 프로젝트 필터링 함수
+  const filteredProjects = selectedTech === 'all' 
+    ? projects 
+    : projects.filter(project => project.skills.includes(selectedTech));
 
   return (
     <Container>
@@ -73,6 +118,45 @@ const Profile = () => {
             <SkillTag>CSS3</SkillTag>
             <SkillTag>Node.js</SkillTag>
           </SkillsList>
+        </Section>
+        
+        <Section>
+          <SectionTitle>프로젝트</SectionTitle>
+          <FilterContainer>
+            {allTechnologies.map(tech => (
+              <FilterButton 
+                key={tech}
+                isSelected={selectedTech === tech}
+                onClick={() => setSelectedTech(tech)}
+              >
+                {tech}
+              </FilterButton>
+            ))}
+          </FilterContainer>
+          <ProjectGrid>
+            {filteredProjects.map(project => (
+              <ProjectCard key={project.id}>
+                <ProjectImage src={project.image} alt={project.title} />
+                <ProjectContent>
+                  <ProjectTitle>{project.title}</ProjectTitle>
+                  <ProjectDescription>{project.description}</ProjectDescription>
+                  <ProjectSkills>
+                    {project.skills.map(skill => (
+                      <SkillTag key={skill}>{skill}</SkillTag>
+                    ))}
+                  </ProjectSkills>
+                  <ProjectLinks>
+                    <ProjectLink href={project.demoUrl} target="_blank">
+                      <i className="fas fa-desktop"></i> 데모 보기
+                    </ProjectLink>
+                    <ProjectLink href={project.sourceCode} target="_blank">
+                      <i className="fab fa-github"></i> 소스 코드
+                    </ProjectLink>
+                  </ProjectLinks>
+                </ProjectContent>
+              </ProjectCard>
+            ))}
+          </ProjectGrid>
         </Section>
       </Content>
     </Container>
@@ -214,6 +298,106 @@ const SkillTag = styled.span`
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 2px 10px rgba(66, 153, 225, 0.3);
+  }
+`;
+
+const ProjectGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+`;
+
+const ProjectCard = styled.div`
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
+const ProjectImage = styled.img`
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+`;
+
+const ProjectContent = styled.div`
+  padding: 20px;
+`;
+
+const ProjectTitle = styled.h3`
+  color: #2d3748;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+`;
+
+const ProjectDescription = styled.p`
+  color: #4a5568;
+  font-size: 0.9em;
+  margin-bottom: 15px;
+`;
+
+const ProjectSkills = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+`;
+
+const ProjectLinks = styled.div`
+  display: flex;
+  gap: 15px;
+`;
+
+const ProjectLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #4299e1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: rgba(66, 153, 225, 0.1);
+
+  &:hover {
+    background-color: #4299e1;
+    color: white;
+  }
+
+  i {
+    font-size: 0.9em;
+  }
+`;
+
+const FilterContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+`;
+
+const FilterButton = styled.button`
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  background: ${props => props.isSelected ? 
+    'linear-gradient(135deg, #4299e1 0%, #3182ce 100%)' : 
+    'rgba(255, 255, 255, 0.8)'};
+  color: ${props => props.isSelected ? 'white' : '#4a5568'};
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 `;
 
