@@ -272,8 +272,8 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
 새로운 기술을 배우고 적용하는 데 주저하지 않으며, 효율적인 코드와 세련된 UI를 구현하는 데 집중합니다.
 더 나은 웹 서비스를 고민하며 한 걸음씩 나아가는 과정이 즐겁습니다.
 
-🔥 성장을 멈추지 않는 개발자, 차준석. 함께 만들어갈 미래를 기대합니다.`},_S="/assets/profile-BjlXk2jb.jpg",CS=()=>{const{name:r,birthDate:e,tags:n,description:s}=SS;return L.jsxs(gS,{children:[L.jsx(yS,{src:_S,alt:"프로필 이미지"}),L.jsx(vS,{children:r}),L.jsx(wS,{children:e}),L.jsx(xS,{children:n.map(l=>L.jsx(bS,{children:l},l))}),L.jsx(kS,{children:s.split(`
-`).map((l,u)=>L.jsxs(xn.Fragment,{children:[l,L.jsx("br",{})]},u))})]})},PS=Q.section`
+🔥 성장을 멈추지 않는 개발자, 차준석. 함께 만들어갈 미래를 기대합니다.`},_S=()=>{const{name:r,birthDate:e,tags:n,description:s}=SS;return L.jsxs(gS,{children:[L.jsx(yS,{src:"/assets/profile.jpg",alt:"프로필 이미지"}),L.jsx(vS,{children:r}),L.jsx(wS,{children:e}),L.jsx(xS,{children:n.map(l=>L.jsx(bS,{children:l},l))}),L.jsx(kS,{children:s.split(`
+`).map((l,u)=>L.jsxs(xn.Fragment,{children:[l,L.jsx("br",{})]},u))})]})},CS=Q.section`
   position: relative;
   z-index: 1;
   max-width: 1200px;
@@ -281,12 +281,12 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
   margin-bottom: 60px;
   padding: 40px;
   background: transparent;
-`,ES=Q.h2`
+`,PS=Q.h2`
   font-size: 2.5em;
   color: #fff;
   margin-bottom: 40px;
   font-weight: 700;
-`,zS=Q.div`
+`,ES=Q.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -359,7 +359,7 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
   }
-`,Hr={mainSkills:[{name:"JavaScript",icon:"fab fa-js"},{name:"React.js",icon:"fab fa-react"},{name:"Vue.js",icon:"fab fa-vuejs"},{name:"HTML5",icon:"fab fa-html5"},{name:"CSS3",icon:"fab fa-css3-alt"},{name:"styled-components",icon:"fas fa-paint-brush"}],subSkills:[{name:"Python",icon:"fab fa-python"},{name:"React Native",icon:"fab fa-react"},{name:"Three.js",icon:"fas fa-cube"}],aiSkills:[{name:"PyTorch",icon:"fas fa-brain"},{name:"YOLO",icon:"fas fa-camera"},{name:"Detectron2",icon:"fas fa-robot"}],tools:[{name:"Git",icon:"fab fa-git-alt"},{name:"GitHub",icon:"fab fa-github"},{name:"Notion",icon:"fas fa-book-open"},{name:"Figma",icon:"fab fa-figma"},{name:"VS Code",icon:"fas fa-code"}]},RS=()=>L.jsxs(PS,{children:[L.jsx(ES,{children:"SKILLS ABILITY"}),L.jsxs(zS,{children:[L.jsxs(vo,{children:[L.jsxs(wo,{children:[L.jsx(xo,{className:"fas fa-code"}),L.jsx(bo,{children:"LANGUAGE"})]}),L.jsx(ko,{children:Hr.mainSkills.slice(0,4).map(r=>L.jsxs(So,{children:[L.jsx("i",{className:r.icon}),r.name]},r.name))})]}),L.jsxs(vo,{children:[L.jsxs(wo,{children:[L.jsx(xo,{className:"fas fa-laptop-code"}),L.jsx(bo,{children:"FRONTEND & FRAMEWORK"})]}),L.jsx(ko,{children:[...Hr.mainSkills.slice(4),...Hr.subSkills].map(r=>L.jsxs(So,{children:[L.jsx("i",{className:r.icon}),r.name]},r.name))})]}),L.jsxs(vo,{children:[L.jsxs(wo,{children:[L.jsx(xo,{className:"fas fa-robot"}),L.jsx(bo,{children:"AI & ML"})]}),L.jsx(ko,{children:Hr.aiSkills.map(r=>L.jsxs(So,{children:[L.jsx("i",{className:r.icon}),r.name]},r.name))})]}),L.jsxs(vo,{children:[L.jsxs(wo,{children:[L.jsx(xo,{className:"fas fa-tools"}),L.jsx(bo,{children:"Tools"})]}),L.jsx(ko,{children:Hr.tools.map(r=>L.jsxs(So,{children:[L.jsx("i",{className:r.icon}),r.name]},r.name))})]})]})]}),Gh={education:[{school:"한국항공대학교",department:"전자정보공학부 신호처리전공",period:"2017.03 ~ 2023.02"},{school:"한국항공대학교",department:"미디어통신 연구실 학부연구생",period:"2022.11 ~ 2023.01"},{school:"삼성 청년 SW 아카데미",department:"10기 수료",period:"2023.07 ~ 2024.06"},{school:"스타트업 베딩홈",department:"웹사이트 제작 외주",period:"2024.07 ~ 2025.02"}],certificate:[{title:"삼성 청년 SW 아카데미 최종 프로젝트 대상",organization:"삼성전자주식회사",date:"2024.06",subtitle:"(전국 168개팀 중 1위)"},{title:"삼성 청년 SW 아카데미 프로젝트 우수상",organization:"삼성전자주식회사",date:"2024.02",subtitle:"(22개팀 중 3위)"},{title:"삼성 청년 SW 아카데미 프로젝트 최우수상",organization:"삼성전자주식회사",date:"2023.12",subtitle:"(20개팀 중 1위)"},{title:"오픽 IM1",organization:"ACTFL",date:"2025.02"}]},MS=Q.section`
+`,Hr={mainSkills:[{name:"JavaScript",icon:"fab fa-js"},{name:"React.js",icon:"fab fa-react"},{name:"Vue.js",icon:"fab fa-vuejs"},{name:"HTML5",icon:"fab fa-html5"},{name:"CSS3",icon:"fab fa-css3-alt"},{name:"styled-components",icon:"fas fa-paint-brush"}],subSkills:[{name:"Python",icon:"fab fa-python"},{name:"React Native",icon:"fab fa-react"},{name:"Three.js",icon:"fas fa-cube"}],aiSkills:[{name:"PyTorch",icon:"fas fa-brain"},{name:"YOLO",icon:"fas fa-camera"},{name:"Detectron2",icon:"fas fa-robot"}],tools:[{name:"Git",icon:"fab fa-git-alt"},{name:"GitHub",icon:"fab fa-github"},{name:"Notion",icon:"fas fa-book-open"},{name:"Figma",icon:"fab fa-figma"},{name:"VS Code",icon:"fas fa-code"}]},zS=()=>L.jsxs(CS,{children:[L.jsx(PS,{children:"SKILLS ABILITY"}),L.jsxs(ES,{children:[L.jsxs(vo,{children:[L.jsxs(wo,{children:[L.jsx(xo,{className:"fas fa-code"}),L.jsx(bo,{children:"LANGUAGE"})]}),L.jsx(ko,{children:Hr.mainSkills.slice(0,4).map(r=>L.jsxs(So,{children:[L.jsx("i",{className:r.icon}),r.name]},r.name))})]}),L.jsxs(vo,{children:[L.jsxs(wo,{children:[L.jsx(xo,{className:"fas fa-laptop-code"}),L.jsx(bo,{children:"FRONTEND & FRAMEWORK"})]}),L.jsx(ko,{children:[...Hr.mainSkills.slice(4),...Hr.subSkills].map(r=>L.jsxs(So,{children:[L.jsx("i",{className:r.icon}),r.name]},r.name))})]}),L.jsxs(vo,{children:[L.jsxs(wo,{children:[L.jsx(xo,{className:"fas fa-robot"}),L.jsx(bo,{children:"AI & ML"})]}),L.jsx(ko,{children:Hr.aiSkills.map(r=>L.jsxs(So,{children:[L.jsx("i",{className:r.icon}),r.name]},r.name))})]}),L.jsxs(vo,{children:[L.jsxs(wo,{children:[L.jsx(xo,{className:"fas fa-tools"}),L.jsx(bo,{children:"Tools"})]}),L.jsx(ko,{children:Hr.tools.map(r=>L.jsxs(So,{children:[L.jsx("i",{className:r.icon}),r.name]},r.name))})]})]})]}),Gh={education:[{school:"한국항공대학교",department:"전자정보공학부 신호처리전공",period:"2017.03 ~ 2023.02"},{school:"한국항공대학교",department:"미디어통신 연구실 학부연구생",period:"2022.11 ~ 2023.01"},{school:"삼성 청년 SW 아카데미",department:"10기 수료",period:"2023.07 ~ 2024.06"},{school:"스타트업 베딩홈",department:"웹사이트 제작 외주",period:"2024.07 ~ 2025.02"}],certificate:[{title:"삼성 청년 SW 아카데미 최종 프로젝트 대상",organization:"삼성전자주식회사",date:"2024.06",subtitle:"(전국 168개팀 중 1위)"},{title:"삼성 청년 SW 아카데미 프로젝트 우수상",organization:"삼성전자주식회사",date:"2024.02",subtitle:"(22개팀 중 3위)"},{title:"삼성 청년 SW 아카데미 프로젝트 최우수상",organization:"삼성전자주식회사",date:"2023.12",subtitle:"(20개팀 중 1위)"},{title:"오픽 IM1",organization:"ACTFL",date:"2025.02"}]},RS=Q.section`
   position: relative;
   z-index: 1;
   max-width: 1200px;
@@ -411,7 +411,7 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
   line-height: 1.4;
   word-break: keep-all;
   font-weight: 600;
-`,TS=Q.p`
+`,MS=Q.p`
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
   margin: 0.25rem 0;
@@ -419,15 +419,15 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
   color: #64ffda;
   font-size: 0.9rem;
   font-weight: 500;
-`,OS=Q.span`
+`,TS=Q.span`
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
-`,IS=Q.span`
+`,OS=Q.span`
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
   display: block;
   margin-top: 0.25rem;
-`,DS=()=>L.jsxs(MS,{children:[L.jsx(Yh,{children:L.jsxs("div",{children:[L.jsxs(Qh,{children:[L.jsx("i",{className:"fas fa-graduation-cap"}),"EDUCATION"]}),Gh.education.slice().reverse().map((r,e)=>L.jsxs(Kh,{children:[L.jsx(Xh,{children:r.school}),L.jsxs("div",{children:[L.jsx(TS,{children:r.department}),L.jsx(Jh,{children:r.period})]})]},e))]})}),L.jsx(Yh,{children:L.jsxs("div",{children:[L.jsxs(Qh,{children:[L.jsx("i",{className:"fas fa-trophy"}),"AWARDS"]}),Gh.certificate.map((r,e)=>L.jsxs(Kh,{children:[L.jsx(Xh,{children:r.title}),L.jsxs("div",{children:[L.jsx(OS,{children:r.organization}),L.jsx(Jh,{children:r.date}),r.subtitle&&L.jsx(IS,{children:r.subtitle})]})]},e))]})})]}),Zu={background:{color:{value:"transparent"}},particles:{number:{value:100,density:{enable:!0,value_area:800}},color:{value:"rgba(255, 255, 255, 0.5)"},shape:{type:"circle"},opacity:{value:.5,random:!0,anim:{enable:!0,speed:.3,opacity_min:.1,sync:!1}},size:{value:1.5,random:!0,anim:{enable:!0,speed:2,size_min:.1,sync:!1}},line_linked:{enable:!0,distance:150,color:"rgba(255, 255, 255, 0.15)",opacity:.15,width:1},move:{enable:!0,speed:.8,direction:"none",random:!0,straight:!1,out_mode:"out",bounce:!1,attract:{enable:!0,rotateX:600,rotateY:1200}}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},onclick:{enable:!0,mode:"push"},resize:!0},modes:{grab:{distance:200,line_linked:{opacity:.2}},push:{particles_nb:4}}},retina_detect:!0};Q.nav`
+`,IS=()=>L.jsxs(RS,{children:[L.jsx(Yh,{children:L.jsxs("div",{children:[L.jsxs(Qh,{children:[L.jsx("i",{className:"fas fa-graduation-cap"}),"EDUCATION"]}),Gh.education.slice().reverse().map((r,e)=>L.jsxs(Kh,{children:[L.jsx(Xh,{children:r.school}),L.jsxs("div",{children:[L.jsx(MS,{children:r.department}),L.jsx(Jh,{children:r.period})]})]},e))]})}),L.jsx(Yh,{children:L.jsxs("div",{children:[L.jsxs(Qh,{children:[L.jsx("i",{className:"fas fa-trophy"}),"AWARDS"]}),Gh.certificate.map((r,e)=>L.jsxs(Kh,{children:[L.jsx(Xh,{children:r.title}),L.jsxs("div",{children:[L.jsx(TS,{children:r.organization}),L.jsx(Jh,{children:r.date}),r.subtitle&&L.jsx(OS,{children:r.subtitle})]})]},e))]})})]}),Zu={background:{color:{value:"transparent"}},particles:{number:{value:100,density:{enable:!0,value_area:800}},color:{value:"rgba(255, 255, 255, 0.5)"},shape:{type:"circle"},opacity:{value:.5,random:!0,anim:{enable:!0,speed:.3,opacity_min:.1,sync:!1}},size:{value:1.5,random:!0,anim:{enable:!0,speed:2,size_min:.1,sync:!1}},line_linked:{enable:!0,distance:150,color:"rgba(255, 255, 255, 0.15)",opacity:.15,width:1},move:{enable:!0,speed:.8,direction:"none",random:!0,straight:!1,out_mode:"out",bounce:!1,attract:{enable:!0,rotateX:600,rotateY:1200}}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},onclick:{enable:!0,mode:"push"},resize:!0},modes:{grab:{distance:200,line_linked:{opacity:.2}},push:{particles_nb:4}}},retina_detect:!0};Q.nav`
   position: fixed;
   left: 2rem;
   top: 50%;
@@ -450,7 +450,7 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
     color: #fff;
     border-left-color: #fff;
   }
-`;const LS=Q.div`
+`;const DS=Q.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -459,7 +459,7 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
   padding: 2rem;
   position: relative;
   z-index: 1;
-`,NS=Q.h1`
+`,LS=Q.h1`
   font-size: clamp(2.5rem, 5vw, 4rem);
   color: #fff;
   margin-bottom: 3rem;
@@ -476,17 +476,17 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
     height: 3px;
     background: #64ffda;
   }
-`,FS=Q.div`
+`,NS=Q.div`
   max-width: 600px;
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 2rem;
-`,AS=Q.ul`
+`,FS=Q.ul`
   list-style: none;
   padding: 0;
-`,jS=Q.li`
+`,AS=Q.li`
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
@@ -538,14 +538,14 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
     color: #fff;
     border-left-color: #fff;
   }
-`,BS=()=>{const r=qo();N.useEffect(()=>{window.scrollTo(0,0)},[]);const e=async s=>{await Gu(s)},n=[{path:"/",label:"Home",active:!0},{path:"/projects",label:"Projects",active:!1},{path:"/contact",label:"Contact",active:!1}];return L.jsxs(L.Fragment,{children:[L.jsx(bm,{id:"tsparticles",init:e,options:Zu}),L.jsx(ec,{children:n.map(s=>L.jsx(tc,{active:s.active,onClick:()=>r(s.path),children:s.label},s.path))}),L.jsx(mS,{}),L.jsx(CS,{}),L.jsx(RS,{}),L.jsx(DS,{})]})},Zh=[{id:1,title:"Beevarium",description:"Web-RTC 기반 실시간 욕설 필터링 + 한/영 번역 웹 라이브 스트리밍 서비스",tech:["Vue.js","Java","Spring Boot","WebRTC","OpenVidu"],thumbnail:"/src/assets/projects/beevarium.png",demoUrl:"https://chajunseok.github.io/beevarium",githubUrl:"https://github.com/chajunseok/beevarium",features:["실시간 스트리밍","채팅 욕설 필터링","실시간 한/영 번역","클립 생성 및 공유"]},{id:2,title:"POTLESS",description:"AI 기반 포트홀 탐지 및 관리 시스템",tech:["React.js","Spring Boot","YOLO","OpenCV"],thumbnail:"/src/assets/projects/potless.png",demoUrl:"/projects/potless/demo",githubUrl:"https://github.com/chajunseok/potless",features:["실시간 포트홀 탐지","포트홀 위치 시각화","관리자 대시보드","보수 이력 관리"]},{id:3,title:"BeddingHome",description:"침구 브랜드 웹사이트 제작 외주",tech:["React.js","Node.js","MongoDB"],thumbnail:"/src/assets/projects/beddinghome.png",demoUrl:"https://beddinghome.co.kr",githubUrl:"https://github.com/chajunseok/beddinghome",features:["반응형 웹 디자인","제품 카탈로그","주문/결제 시스템","관리자 CMS"]},{id:4,title:"Finance Fit Mate",description:"금융 데이터를 활용한 맞춤형 금융 상품 추천 서비스",tech:["Vue.js","Django","Python","MySQL"],thumbnail:"/src/assets/projects/finance-fit-mate.png",demoUrl:"https://chajunseok.github.io/finance-fit-mate",githubUrl:"https://github.com/chajunseok/finance-fit-mate",features:["금융 상품 추천 알고리즘","실시간 환율 정보","은행 지점 찾기","커뮤니티 서비스"]}],$S=Q.div`
+`,jS=()=>{const r=qo();N.useEffect(()=>{window.scrollTo(0,0)},[]);const e=async s=>{await Gu(s)},n=[{path:"/",label:"Home",active:!0},{path:"/projects",label:"Projects",active:!1},{path:"/contact",label:"Contact",active:!1}];return L.jsxs(L.Fragment,{children:[L.jsx(bm,{id:"tsparticles",init:e,options:Zu}),L.jsx(ec,{children:n.map(s=>L.jsx(tc,{active:s.active,onClick:()=>r(s.path),children:s.label},s.path))}),L.jsx(mS,{}),L.jsx(_S,{}),L.jsx(zS,{}),L.jsx(IS,{})]})},Zh=[{id:1,title:"Beevarium",description:"Web-RTC 기반 실시간 욕설 필터링 + 한/영 번역 웹 라이브 스트리밍 서비스",tech:["Vue.js","Java","Spring Boot","WebRTC","OpenVidu"],thumbnail:"/assets/projects/beevarium.png",demoUrl:"https://chajunseok.github.io/beevarium",githubUrl:"https://github.com/chajunseok/beevarium",features:["실시간 스트리밍","채팅 욕설 필터링","실시간 한/영 번역","클립 생성 및 공유"]},{id:2,title:"POTLESS",description:"AI 기반 포트홀 탐지 및 관리 시스템",tech:["React.js","Spring Boot","YOLO","OpenCV"],thumbnail:"/assets/projects/potless.png",demoUrl:"/projects/potless/demo",githubUrl:"https://github.com/chajunseok/potless",features:["실시간 포트홀 탐지","포트홀 위치 시각화","관리자 대시보드","보수 이력 관리"]},{id:3,title:"BeddingHome",description:"침구 브랜드 웹사이트 제작 외주",tech:["React.js","Node.js","MongoDB"],thumbnail:"/assets/projects/beddinghome.png",demoUrl:"https://beddinghome.co.kr",githubUrl:"https://github.com/chajunseok/beddinghome",features:["반응형 웹 디자인","제품 카탈로그","주문/결제 시스템","관리자 CMS"]},{id:4,title:"Finance Fit Mate",description:"금융 데이터를 활용한 맞춤형 금융 상품 추천 서비스",tech:["Vue.js","Django","Python","MySQL"],thumbnail:"/assets/projects/finance-fit-mate.png",demoUrl:"https://chajunseok.github.io/finance-fit-mate",githubUrl:"https://github.com/chajunseok/finance-fit-mate",features:["금융 상품 추천 알고리즘","실시간 환율 정보","은행 지점 찾기","커뮤니티 서비스"]}],BS=Q.div`
   min-height: 100vh;
   position: relative;
   overflow: hidden;
   margin-left: 5rem;
   width: calc(100% - 5rem);
   z-index: 0;
-`,US=Q.div`
+`,$S=Q.div`
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -557,14 +557,14 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
   margin: 2rem 0;
   padding: 0 2rem;
   height: calc(100vh - 120px);
-`,HS=Q(is)`
+`,US=Q(is)`
   position: fixed;
   top: 0;
   left: 5rem;
   width: calc(100% - 5rem);
   height: 100%;
   z-index: -1;
-`,WS=Q.div`
+`,HS=Q.div`
   position: relative;
   z-index: 1;
   min-height: 100vh;
@@ -600,7 +600,7 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
     box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.5);
     border-color: rgba(255, 255, 255, 0.2);
   }
-`,qS=Q.img`
+`,WS=Q.img`
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -610,7 +610,7 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
   ${km}:hover & {
     transform: scale(1.05);
   }
-`,VS=Q.div`
+`,qS=Q.div`
   padding: 1.5rem;
   background: linear-gradient(
     to bottom,
@@ -636,7 +636,7 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
       background: rgba(255, 255, 255, 0.2);
     }
   }
-`,GS=Q.h3`
+`,VS=Q.h3`
   color: #64ffda;
   font-size: 1.2rem;
   margin-bottom: 1rem;
@@ -651,24 +651,24 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
     height: 2px;
     background-color: #64ffda;
   }
-`,QS=Q.p`
+`,GS=Q.p`
   color: #fff;
   line-height: 1.6;
   margin-bottom: 1rem;
   font-size: 0.9rem;
-`,YS=Q.div`
+`,QS=Q.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1rem;
-`,KS=Q.span`
+`,YS=Q.span`
   background: rgba(100, 255, 218, 0.1);
   color: #64ffda;
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-size: 0.85rem;
   border: 1px solid rgba(100, 255, 218, 0.2);
-`,XS=Q.div`
+`,KS=Q.div`
   display: flex;
   gap: 1rem;
   z-index: 2;
@@ -682,12 +682,12 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
   &:hover {
     color: #64ffda;
   }
-`,JS=Q.ul`
+`,XS=Q.ul`
   list-style: none;
   padding: 0;
   margin: 1rem 0;
   color: #ccc;
-`,ZS=Q.li`
+`,JS=Q.li`
   margin: 0.5rem 0;
   display: flex;
   align-items: center;
@@ -698,7 +698,7 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
     content: "▹";
     color: #64ffda;
   }
-`,e_=Q.div`
+`,ZS=Q.div`
   display: flex;
   justify-content: center;
   gap: 100px;
@@ -739,4 +739,4 @@ Please change the parent <Route path="${I}"> to <Route path="${I==="/"?"*":`${I}
     opacity: 0.5;
     cursor: not-allowed;
   }
-`,t_=()=>{const r=qo(),e=N.useRef(null),[n,s]=N.useState(0),l=[{path:"/",label:"Home",active:!1},{path:"/projects",label:"Projects",active:!0},{path:"/contact",label:"Contact",active:!1}],u=d=>{const p=e.current,m=p.children[0].offsetWidth+30,y=d==="next"?n+1:n-1;p.scrollTo({left:m*y,behavior:"smooth"}),s(y)},c=async d=>{await Gu(d)};return L.jsxs($S,{children:[L.jsx(HS,{id:"tsparticles",init:c,options:Zu}),L.jsx(ec,{children:l.map(d=>L.jsx(tc,{active:d.active,onClick:()=>r(d.path),children:d.label},d.path))}),L.jsxs(WS,{children:[L.jsx(US,{ref:e,children:Zh.map(d=>{var p;return L.jsxs(km,{onClick:()=>window.open(d.demoUrl,"_blank"),children:[L.jsx(qS,{src:d.thumbnail,alt:d.title}),L.jsxs(VS,{children:[L.jsx(GS,{children:d.title}),L.jsx(QS,{children:d.description}),L.jsx(JS,{children:(p=d.features)==null?void 0:p.map((m,y)=>L.jsx(ZS,{children:m},y))}),L.jsx(YS,{children:d.tech.map(m=>L.jsx(KS,{children:m},m))}),L.jsxs(XS,{onClick:m=>m.stopPropagation(),children:[L.jsxs(ep,{href:d.demoUrl,target:"_blank",rel:"noopener noreferrer",children:[L.jsx("i",{className:"fas fa-external-link-alt"}),"Demo"]}),L.jsxs(ep,{href:d.githubUrl,target:"_blank",rel:"noopener noreferrer",children:[L.jsx("i",{className:"fab fa-github"}),"GitHub"]})]})]})]},d.id)})}),L.jsxs(e_,{children:[L.jsx(tp,{onClick:()=>u("prev"),disabled:n===0,children:L.jsx("i",{className:"fas fa-chevron-left"})}),L.jsx(tp,{onClick:()=>u("next"),disabled:n===Zh.length-1,children:L.jsx("i",{className:"fas fa-chevron-right"})})]})]})]})},n_=()=>{const r=qo();N.useEffect(()=>{window.scrollTo(0,0)},[]);const e=async l=>{await Gu(l)},n=[{icon:"fas fa-phone",content:"010-6649-5142"},{icon:"fas fa-envelope",content:"wnstjr401@naver.com"},{icon:"fab fa-github",content:"github.com/chajunseok",link:"https://github.com/chajunseok"}],s=[{path:"/",label:"Home",active:!1},{path:"/projects",label:"Projects",active:!1},{path:"/contact",label:"Contact",active:!0}];return L.jsxs(L.Fragment,{children:[L.jsx(bm,{id:"tsparticles",init:e,options:Zu}),L.jsx(ec,{children:s.map(l=>L.jsx(tc,{active:l.active,onClick:()=>r(l.path),children:l.label},l.path))}),L.jsxs(LS,{children:[L.jsx(NS,{children:"CONTACT ME"}),L.jsx(FS,{children:L.jsx(AS,{children:n.map((l,u)=>L.jsxs(jS,{children:[L.jsx("i",{className:l.icon}),l.link?L.jsx("a",{href:l.link,target:"_blank",rel:"noopener noreferrer",children:l.content}):L.jsx("span",{children:l.content})]},u))})})]})]})},i_=()=>{const{pathname:r}=Qn();return N.useEffect(()=>{window.scrollTo(0,0)},[r]),null};function r_(){return L.jsxs(Uv,{basename:"/",children:[L.jsx(i_,{}),L.jsx("div",{className:"App",children:L.jsxs(vv,{children:[L.jsx(_o,{path:"/",element:L.jsx(BS,{})}),L.jsx(_o,{path:"/projects",element:L.jsx(t_,{})}),L.jsx(_o,{path:"/contact",element:L.jsx(n_,{})})]})})]})}zy.createRoot(document.getElementById("root")).render(L.jsx(xn.StrictMode,{children:L.jsx(r_,{})}));
+`,e_=()=>{const r=qo(),e=N.useRef(null),[n,s]=N.useState(0),l=[{path:"/",label:"Home",active:!1},{path:"/projects",label:"Projects",active:!0},{path:"/contact",label:"Contact",active:!1}],u=d=>{const p=e.current,m=p.children[0].offsetWidth+30,y=d==="next"?n+1:n-1;p.scrollTo({left:m*y,behavior:"smooth"}),s(y)},c=async d=>{await Gu(d)};return L.jsxs(BS,{children:[L.jsx(US,{id:"tsparticles",init:c,options:Zu}),L.jsx(ec,{children:l.map(d=>L.jsx(tc,{active:d.active,onClick:()=>r(d.path),children:d.label},d.path))}),L.jsxs(HS,{children:[L.jsx($S,{ref:e,children:Zh.map(d=>{var p;return L.jsxs(km,{onClick:()=>window.open(d.demoUrl,"_blank"),children:[L.jsx(WS,{src:d.thumbnail,alt:d.title}),L.jsxs(qS,{children:[L.jsx(VS,{children:d.title}),L.jsx(GS,{children:d.description}),L.jsx(XS,{children:(p=d.features)==null?void 0:p.map((m,y)=>L.jsx(JS,{children:m},y))}),L.jsx(QS,{children:d.tech.map(m=>L.jsx(YS,{children:m},m))}),L.jsxs(KS,{onClick:m=>m.stopPropagation(),children:[L.jsxs(ep,{href:d.demoUrl,target:"_blank",rel:"noopener noreferrer",children:[L.jsx("i",{className:"fas fa-external-link-alt"}),"Demo"]}),L.jsxs(ep,{href:d.githubUrl,target:"_blank",rel:"noopener noreferrer",children:[L.jsx("i",{className:"fab fa-github"}),"GitHub"]})]})]})]},d.id)})}),L.jsxs(ZS,{children:[L.jsx(tp,{onClick:()=>u("prev"),disabled:n===0,children:L.jsx("i",{className:"fas fa-chevron-left"})}),L.jsx(tp,{onClick:()=>u("next"),disabled:n===Zh.length-1,children:L.jsx("i",{className:"fas fa-chevron-right"})})]})]})]})},t_=()=>{const r=qo();N.useEffect(()=>{window.scrollTo(0,0)},[]);const e=async l=>{await Gu(l)},n=[{icon:"fas fa-phone",content:"010-6649-5142"},{icon:"fas fa-envelope",content:"wnstjr401@naver.com"},{icon:"fab fa-github",content:"github.com/chajunseok",link:"https://github.com/chajunseok"}],s=[{path:"/",label:"Home",active:!1},{path:"/projects",label:"Projects",active:!1},{path:"/contact",label:"Contact",active:!0}];return L.jsxs(L.Fragment,{children:[L.jsx(bm,{id:"tsparticles",init:e,options:Zu}),L.jsx(ec,{children:s.map(l=>L.jsx(tc,{active:l.active,onClick:()=>r(l.path),children:l.label},l.path))}),L.jsxs(DS,{children:[L.jsx(LS,{children:"CONTACT ME"}),L.jsx(NS,{children:L.jsx(FS,{children:n.map((l,u)=>L.jsxs(AS,{children:[L.jsx("i",{className:l.icon}),l.link?L.jsx("a",{href:l.link,target:"_blank",rel:"noopener noreferrer",children:l.content}):L.jsx("span",{children:l.content})]},u))})})]})]})},n_=()=>{const{pathname:r}=Qn();return N.useEffect(()=>{window.scrollTo(0,0)},[r]),null};function i_(){return L.jsxs(Uv,{basename:"/",children:[L.jsx(n_,{}),L.jsx("div",{className:"App",children:L.jsxs(vv,{children:[L.jsx(_o,{path:"/",element:L.jsx(jS,{})}),L.jsx(_o,{path:"/projects",element:L.jsx(e_,{})}),L.jsx(_o,{path:"/contact",element:L.jsx(t_,{})})]})})]})}zy.createRoot(document.getElementById("root")).render(L.jsx(xn.StrictMode,{children:L.jsx(i_,{})}));
