@@ -66,4 +66,38 @@ export const ContactItem = styled.li`
       color: #64ffda;
     }
   }
+`;
+
+export const CopyNotification = styled.div`
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(100, 255, 218, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: #64ffda;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  animation: slideUp 0.3s ease-out;
+  z-index: 1000;
+  
+  i {
+    color: #64ffda;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 20px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
 `; 

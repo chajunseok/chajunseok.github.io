@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { projects } from '../constants/projectsData';
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
@@ -60,35 +60,34 @@ const ProjectsGrid = styled.div`
 
 const ProjectCard = styled.div`
   flex: 0 0 auto;
-  width: calc(70% - 30px);
-  max-width: 700px;
+  width: ${props => props.$isMobile ? '900px' : 'calc(70% - 30px)'};
+  max-width: ${props => props.$isMobile ? '800px' : '700px'};
   height: calc(100vh - 160px);
   margin-right: 30px;
   background: rgba(17, 25, 40, 0.75);
   border-radius: 15px;
   overflow: hidden;
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 255, 255, 0.2);
-  }
+  flex-direction: ${props => props.$isMobile ? 'row' : 'column'};
 `;
 
 const ProjectImage = styled.img`
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+  width: ${props => props.$isMobile ? '287px' : '100%'};
+  height: ${props => props.$isMobile ? '680px' : '200px'};
+  object-fit: ${props => props.$isMobile ? 'contain' : 'cover'};
   object-position: top;
+  cursor: pointer;
   transition: transform 0.3s ease;
+  ${props => props.$isMobile && css`
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+  `}
 
-  ${ProjectCard}:hover & {
+  &:hover {
     transform: scale(1.05);
   }
 `;
@@ -102,6 +101,13 @@ const ProjectContent = styled.div`
   );
   flex: 1;
   overflow-y: auto;
+  
+  ${props => props.$isMobile && css`
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+  `}
   
   &::-webkit-scrollbar {
     width: 8px;
@@ -164,7 +170,8 @@ const TechTag = styled.span`
 const Links = styled.div`
   display: flex;
   gap: 1rem;
-  z-index: 2;
+  z-index: 20;
+  position: relative;
 `;
 
 const Link = styled.a`
@@ -173,9 +180,20 @@ const Link = styled.a`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 1000;
   
   &:hover {
     color: #64ffda;
+    i {
+      color: #64ffda;
+    }
+  }
+
+  i {
+    transition: all 0.3s ease;
+    color: #fff;
   }
 `;
 
@@ -202,18 +220,19 @@ const FeatureItem = styled.li`
 const SliderControls = styled.div`
   display: flex;
   justify-content: center;
-  gap: 100px;
+  gap: 120px;
   margin-top: 20px;
   position: fixed;
   top: 80%;
   transform: translateY(-50%);
-  left: 5rem;
-  right: 0;
+  left: 45%;
+  /* right: 0; */
   z-index: 10;
+  width: fit-content;
 `;
 
 const SliderButton = styled.button`
-  background: transparent;
+  background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(0, 0, 0, 0.3));
   color: #64ffda;
   border: none;
   border-radius: 50%;
@@ -228,19 +247,23 @@ const SliderButton = styled.button`
   height: 60px;
   position: relative;
   backdrop-filter: blur(5px);
-  background: rgba(17, 25, 40, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(100, 255, 218, 0.2);
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.1);
 
   &:hover {
-    color: #fff;
+    color: #64ffda;
     transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(0, 0, 0, 0.4));
+    border-color: rgba(100, 255, 218, 0.4);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
   }
 
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    background: rgba(17, 25, 40, 0.5);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
   }
 `;
 
@@ -254,6 +277,24 @@ const Projects = () => {
     { path: '/projects', label: 'Projects', active: true },
     { path: '/contact', label: 'Contact', active: false }
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sliderRef.current) {
+        const slider = sliderRef.current;
+        const cardWidth = slider.children[0].offsetWidth + 30;
+        const scrollPosition = slider.scrollLeft;
+        const newIndex = Math.round(scrollPosition / cardWidth);
+        setCurrentIndex(newIndex);
+      }
+    };
+
+    const slider = sliderRef.current;
+    if (slider) {
+      slider.addEventListener('scroll', handleScroll);
+      return () => slider.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
 
   const handleSlide = (direction) => {
     const slider = sliderRef.current;
@@ -296,10 +337,15 @@ const Projects = () => {
           {projects.map(project => (
             <ProjectCard 
               key={project.id}
-              onClick={() => window.open(project.demoUrl, '_blank')}
+              $isMobile={project.isMobile}
             >
-              <ProjectImage src={project.thumbnail} alt={project.title} />
-              <ProjectContent>
+              <ProjectImage 
+                src={project.thumbnail} 
+                alt={project.title} 
+                $isMobile={project.isMobile}
+                onClick={() => project.demoUrl !== 0 && window.open(project.demoUrl, '_blank')}
+              />
+              <ProjectContent $isMobile={project.isMobile}>
                 <ProjectTitle>{project.title}</ProjectTitle>
                 <ProjectDescription>{project.description}</ProjectDescription>
                 <FeatureList>
@@ -312,14 +358,22 @@ const Projects = () => {
                     <TechTag key={tech}>{tech}</TechTag>
                   ))}
                 </TechStack>
-                <Links
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                    <i className="fas fa-external-link-alt"></i>
-                    Demo
-                  </Link>
-                  <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                <Links>
+                  {project.demoUrl !== 0 && (
+                    <Link 
+                      href={project.demoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fas fa-external-link-alt"></i>
+                      Demo
+                    </Link>
+                  )}
+                  <Link 
+                    href={project.githubUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
                     <i className="fab fa-github"></i>
                     GitHub
                   </Link>

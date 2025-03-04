@@ -1,14 +1,13 @@
 import React from 'react';
 import * as S from '../styles/ProfileStyles';
 import { profileData } from '../constants/profileData';
-import profileImage from '../../../assets/profile.jpg';
 
 const ProfileSection = () => {
   const { name, birthDate, tags, description } = profileData;
   
   return (
     <S.ProfileInfo>
-      <S.ProfileImage src={profileImage} alt="프로필 이미지" />
+      <S.ProfileImage src="/assets/profile.jpg" alt="프로필 이미지" />
       <S.ProfileName>{name}</S.ProfileName>
       <S.ProfileDate>{birthDate}</S.ProfileDate>
       <S.TagContainer>

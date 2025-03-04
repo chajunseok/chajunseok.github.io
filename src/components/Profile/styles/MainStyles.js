@@ -88,28 +88,24 @@ export const MainContent = styled.main`
   margin-top: -10vh;
 `;
 
-export const Name = styled.h2`
-  font-size: clamp(3rem, 8vw, 5rem);
+export const Name = styled.h1`
+  font-size: clamp(4rem, 10vw, 6.5rem);
   font-weight: 700;
-  margin-bottom: 0;
-  letter-spacing: 2px;
-  opacity: 0;
-  animation: fadeIn 0.5s ease forwards;
-  animation-delay: 1.5s;
+  color: #fff;
+  margin: 0;
   line-height: 1;
-  text-align: center;
+  transition: transform 0.3s ease-out;
+  transform: ${props => `translateX(${props.x || 0}px)`};
 `;
 
-export const MainSubTitle = styled.h3`
-  font-size: clamp(3rem, 8vw, 5rem);
+export const MainSubTitle = styled.h2`
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 700;
-  letter-spacing: 2px;
-  opacity: 0;
-  animation: fadeIn 0.5s ease forwards;
-  animation-delay: 2s;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
   line-height: 1;
-  text-align: center;
-  margin-top: -1rem;
+  transition: transform 0.3s ease-out;
+  transform: ${props => `translateX(${props.x || 0}px)`};
 `;
 
 export const ScrollDown = styled.div`
