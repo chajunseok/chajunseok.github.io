@@ -8,12 +8,20 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
-      external: ['framer-motion', 'html2canvas', 'jspdf'],
+      external: [
+        'framer-motion', 
+        'html2canvas', 
+        'jspdf',
+        'react-chartjs-2',
+        'chart.js'
+      ],
       output: {
         globals: {
           'framer-motion': 'framerMotion',
           'html2canvas': 'html2canvas',
-          'jspdf': 'jspdf'
+          'jspdf': 'jspdf',
+          'react-chartjs-2': 'ReactChartjs2',
+          'chart.js': 'Chart'
         }
       }
     }
