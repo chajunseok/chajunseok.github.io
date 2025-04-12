@@ -7,6 +7,7 @@ export const initGA = () => {
       send_page_view: false, // 수동으로 페이지뷰를 전송하기 위해 false로 설정
       debug: process.env.NODE_ENV === 'development' // 개발 환경에서만 디버그 모드 활성화
     });
+    // 에러 확인
     console.log('[GA] Initialized with ID:', measurementId);
   } else {
     console.warn('GA4 measurement ID not found');
