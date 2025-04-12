@@ -45,6 +45,7 @@ const Contact = () => {
   const navItems = [
     { path: '/', label: 'Home', active: false },
     { path: '/projects', label: 'Projects', active: false },
+    { path: '/playground', label: 'Playground', active: false },
     { path: '/contact', label: 'Contact', active: true }
   ];
 

@@ -1,306 +1,56 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-import { projects } from '../constants/projectsData';
-import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { particlesOptions } from '../constants/particlesConfig';
-import * as S from '../styles';  // styles 파일에서 SideNav 컴포넌트 import
-
-const ProjectsContainer = styled.div`
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  margin-left: 5rem;
-  width: calc(100% - 5rem);
-  z-index: 0;
-`;
-
-const ProjectsSlider = styled.div`
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  position: relative;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  margin: 2rem 0;
-  padding: 0 2rem;
-  height: calc(100vh - 120px);
-`;
-
-const ParticlesBackground = styled(Particles)`
-  position: fixed;
-  top: 0;
-  left: 5rem;
-  width: calc(100% - 5rem);
-  height: 100%;
-  z-index: -1;
-`;
-
-const ContentWrapper = styled.div`
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background: transparent;
-`;
-
-const ProjectsGrid = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
-  padding: 2rem;
-`;
-
-const ProjectCard = styled.div`
-  flex: 0 0 auto;
-  width: ${props => props.$isMobile ? '900px' : 'calc(70% - 30px)'};
-  max-width: ${props => props.$isMobile ? '800px' : '700px'};
-  height: calc(100vh - 160px);
-  margin-right: 30px;
-  background: rgba(17, 25, 40, 0.75);
-  border-radius: 15px;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: ${props => props.$isMobile ? 'row' : 'column'};
-`;
-
-const ProjectImage = styled.img`
-  width: ${props => props.$isMobile ? '287px' : '100%'};
-  height: ${props => props.$isMobile ? '680px' : '200px'};
-  object-fit: ${props => props.$isMobile ? 'contain' : 'cover'};
-  object-position: top;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  ${props => props.$isMobile && css`
-    background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px;
-  `}
-
-  &:hover {
-    transform: scale(1.05);
-  }
-`;
-
-const ProjectContent = styled.div`
-  padding: 1.5rem;
-  background: linear-gradient(
-    to bottom,
-    rgba(17, 25, 40, 0.75),
-    rgba(17, 25, 40, 0.95)
-  );
-  flex: 1;
-  overflow-y: auto;
-  
-  ${props => props.$isMobile && css`
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-  `}
-  
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  &::-webkit-scrollbar-track {
-    background: rgba(17, 25, 40, 0.5);
-  }
-  
-  &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    
-    &:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-  }
-`;
-
-const ProjectTitle = styled.h3`
-  color: #64ffda;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  position: relative;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background-color: #64ffda;
-  }
-`;
-
-const ProjectDescription = styled.p`
-  color: #fff;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-`;
-
-const TechStack = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-`;
-
-const TechTag = styled.span`
-  background: rgba(100, 255, 218, 0.1);
-  color: #64ffda;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  border: 1px solid rgba(100, 255, 218, 0.2);
-`;
-
-const Links = styled.div`
-  display: flex;
-  gap: 1rem;
-  z-index: 20;
-  position: relative;
-`;
-
-const Link = styled.a`
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  z-index: 1000;
-  
-  &:hover {
-    color: #64ffda;
-    i {
-      color: #64ffda;
-    }
-  }
-
-  i {
-    transition: all 0.3s ease;
-    color: #fff;
-  }
-`;
-
-const FeatureList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-  color: #ccc;
-`;
-
-const FeatureItem = styled.li`
-  margin: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  
-  &:before {
-    content: "▹";
-    color: #64ffda;
-  }
-`;
-
-const SliderControls = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 120px;
-  margin-top: 20px;
-  position: fixed;
-  top: 80%;
-  transform: translateY(-50%);
-  left: 45%;
-  /* right: 0; */
-  z-index: 10;
-  width: fit-content;
-`;
-
-const SliderButton = styled.button`
-  background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(0, 0, 0, 0.3));
-  color: #64ffda;
-  border: none;
-  border-radius: 50%;
-  padding: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  position: relative;
-  backdrop-filter: blur(5px);
-  border: 2px solid rgba(100, 255, 218, 0.2);
-  box-shadow: 0 0 15px rgba(100, 255, 218, 0.1);
-
-  &:hover {
-    color: #64ffda;
-    transform: scale(1.05);
-    background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(0, 0, 0, 0.4));
-    border-color: rgba(100, 255, 218, 0.4);
-    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background: rgba(17, 25, 40, 0.5);
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: none;
-  }
-`;
+import { projects } from '../constants/projectsData';
+import * as S from '../styles';
+import * as PS from '../styles/ProjectStyles';
+import ProjectModal from '../components/ProjectModal';
 
 const Projects = () => {
   const navigate = useNavigate();
-  const sliderRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const navItems = [
-    { path: '/', label: 'Home', active: false },
-    { path: '/projects', label: 'Projects', active: true },
-    { path: '/contact', label: 'Contact', active: false }
-  ];
+  const sliderRef = useRef(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
     const handleScroll = () => {
-      if (sliderRef.current) {
-        const slider = sliderRef.current;
-        const cardWidth = slider.children[0].offsetWidth + 30;
-        const scrollPosition = slider.scrollLeft;
-        const newIndex = Math.round(scrollPosition / cardWidth);
+      const cardWidth = slider.children[0].offsetWidth + 32;
+      const newIndex = Math.round(slider.scrollLeft / cardWidth);
+      if (newIndex > projects.length - 1) {
+        slider.scrollTo({
+          left: cardWidth * (projects.length - 1),
+          behavior: 'smooth'
+        });
+        setCurrentIndex(projects.length - 1);
+      } else {
         setCurrentIndex(newIndex);
       }
     };
 
-    const slider = sliderRef.current;
-    if (slider) {
-      slider.addEventListener('scroll', handleScroll);
-      return () => slider.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
+    slider.addEventListener('scroll', handleScroll);
+    return () => slider.removeEventListener('scroll', handleScroll);
+  }, [projects.length]);
+
+  const particlesInit = async (main) => {
+    await loadFull(main);
+  };
 
   const handleSlide = (direction) => {
     const slider = sliderRef.current;
-    const cardWidth = slider.children[0].offsetWidth + 30; // 카드 너비 + margin
+    const cardWidth = slider.children[0].offsetWidth + 32;
+    const maxIndex = projects.length - 1;
+    
     const newIndex = direction === 'next' ? 
-      currentIndex + 1 : currentIndex - 1;
+      Math.min(currentIndex + 1, maxIndex) : 
+      Math.max(currentIndex - 1, 0);
     
     slider.scrollTo({
       left: cardWidth * newIndex,
@@ -310,13 +60,24 @@ const Projects = () => {
     setCurrentIndex(newIndex);
   };
 
-  const particlesInit = async (main) => {
-    await loadFull(main);
+  const openModal = (project) => {
+    setSelectedProject(project);
   };
 
+  const closeModal = () => {
+    setSelectedProject(null);
+  };
+
+  const navItems = [
+    { path: '/', label: 'Home', active: false },
+    { path: '/projects', label: 'Projects', active: true },
+    { path: '/playground', label: 'Playground', active: false },
+    { path: '/contact', label: 'Contact', active: false }
+  ];
+
   return (
-    <ProjectsContainer>
-      <ParticlesBackground
+    <PS.ProjectsContainer>
+      <S.ParticlesBackground
         id="tsparticles"
         init={particlesInit}
         options={particlesOptions}
@@ -332,72 +93,67 @@ const Projects = () => {
           </S.NavItem>
         ))}
       </S.SideNav>
-      <ContentWrapper>
-        <ProjectsSlider ref={sliderRef}>
-          {projects.map(project => (
-            <ProjectCard 
-              key={project.id}
+      <PS.ProjectsSlider ref={sliderRef}>
+        {projects.map(project => (
+          <PS.ProjectCard 
+            key={project.id}
+            $isMobile={project.isMobile}
+          >
+            <PS.ProjectImage 
+              src={project.thumbnail} 
+              alt={project.title} 
               $isMobile={project.isMobile}
-            >
-              <ProjectImage 
-                src={project.thumbnail} 
-                alt={project.title} 
-                $isMobile={project.isMobile}
-                onClick={() => project.demoUrl !== 0 && window.open(project.demoUrl, '_blank')}
-              />
-              <ProjectContent $isMobile={project.isMobile}>
-                <ProjectTitle>{project.title}</ProjectTitle>
-                <ProjectDescription>{project.description}</ProjectDescription>
-                <FeatureList>
-                  {project.features?.map((feature, index) => (
-                    <FeatureItem key={index}>{feature}</FeatureItem>
-                  ))}
-                </FeatureList>
-                <TechStack>
-                  {project.tech.map(tech => (
-                    <TechTag key={tech}>{tech}</TechTag>
-                  ))}
-                </TechStack>
-                <Links>
-                  {project.demoUrl !== 0 && (
-                    <Link 
-                      href={project.demoUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      <i className="fas fa-external-link-alt"></i>
-                      Demo
-                    </Link>
-                  )}
-                  <Link 
-                    href={project.githubUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
+              onClick={() => project.demoUrl !== 0 && window.open(project.demoUrl, '_blank')}
+            />
+            <PS.ProjectContent $isMobile={project.isMobile}>
+              <PS.ProjectHeader>
+                <PS.ProjectTitle>{project.title}</PS.ProjectTitle>
+              </PS.ProjectHeader>
+              <PS.ProjectDescription>{project.description}</PS.ProjectDescription>
+              <PS.ProjectLinks>
+                {project.demoUrl !== 0 && (
+                  <PS.ProjectLink href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                    <i className={project.title === "BeddingHome" ? "fas fa-globe" : "fas fa-external-link-alt"}></i>
+                    <span>{project.title === "BeddingHome" ? "Live Site" : "Demo"}</span>
+                  </PS.ProjectLink>
+                )}
+                {project.githubUrl && (
+                  <PS.ProjectLink href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-github"></i>
-                    GitHub
-                  </Link>
-                </Links>
-              </ProjectContent>
-            </ProjectCard>
-          ))}
-        </ProjectsSlider>
-        <SliderControls>
-          <SliderButton 
-            onClick={() => handleSlide('prev')}
-            disabled={currentIndex === 0}
-          >
-            <i className="fas fa-chevron-left"></i>
-          </SliderButton>
-          <SliderButton 
-            onClick={() => handleSlide('next')}
-            disabled={currentIndex === projects.length - 1}
-          >
-            <i className="fas fa-chevron-right"></i>
-          </SliderButton>
-        </SliderControls>
-      </ContentWrapper>
-    </ProjectsContainer>
+                    <span>GitHub</span>
+                  </PS.ProjectLink>
+                )}
+                <PS.ProjectLink onClick={() => openModal(project)}>
+                  <i className="fas fa-info-circle"></i>
+                  <span>Detail</span>
+                </PS.ProjectLink>
+              </PS.ProjectLinks>
+            </PS.ProjectContent>
+          </PS.ProjectCard>
+        ))}
+      </PS.ProjectsSlider>
+      <PS.SliderControls>
+        <PS.SliderButton 
+          onClick={() => handleSlide('prev')} 
+          disabled={currentIndex === 0}
+        >
+          <i className="fas fa-chevron-left" />
+        </PS.SliderButton>
+        <PS.SliderButton 
+          onClick={() => handleSlide('next')} 
+          disabled={currentIndex === projects.length - 1}
+        >
+          <i className="fas fa-chevron-right" />
+        </PS.SliderButton>
+      </PS.SliderControls>
+
+      {selectedProject && (
+        <ProjectModal 
+          project={selectedProject} 
+          onClose={closeModal}
+        />
+      )}
+    </PS.ProjectsContainer>
   );
 };
 

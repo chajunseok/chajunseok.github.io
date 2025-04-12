@@ -22,6 +22,7 @@ const Home = () => {
   const navItems = [
     { path: '/', label: 'Home', active: true },
     { path: '/projects', label: 'Projects', active: false },
+    { path: '/playground', label: 'Playground', active: false },
     { path: '/contact', label: 'Contact', active: false }
   ];
 

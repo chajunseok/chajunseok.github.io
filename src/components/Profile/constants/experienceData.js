@@ -40,10 +40,5 @@ export const experienceData = {
       date: "2023.12",
       subtitle: "(20개팀 중 1위)"
     },
-    {
-      title: "오픽 IM1",
-      organization: "ACTFL",
-      date: "2025.02"
-    }
   ]
 }; 

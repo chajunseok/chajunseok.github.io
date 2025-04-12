@@ -9,16 +9,17 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "VITE_GA_MEASUREMENT_ID=$VITE_GA_MEASUREMENT_ID npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-ga4": "^2.1.0",
     "react-router-dom": "^7.2.0",
-    "react-tsparticles": "^2.12.0",
+    "react-tsparticles": "^2.9.3",
     "styled-components": "^6.1.15",
-    "c": "^2.12.0"
+    "tsparticles": "^2.9.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
