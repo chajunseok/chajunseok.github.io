@@ -13,7 +13,8 @@ export default defineConfig({
         'html2canvas', 
         'jspdf',
         'react-chartjs-2',
-        'chart.js'
+        'chart.js',
+        'three'
       ],
       output: {
         globals: {
@@ -21,7 +22,8 @@ export default defineConfig({
           'html2canvas': 'html2canvas',
           'jspdf': 'jspdf',
           'react-chartjs-2': 'ReactChartjs2',
-          'chart.js': 'Chart'
+          'chart.js': 'Chart',
+          'three': 'THREE'
         }
       }
     }
@@ -31,7 +33,8 @@ export default defineConfig({
     alias: {
       'framer-motion': 'framer-motion/dist/framer-motion',
       'html2canvas': 'html2canvas/dist/html2canvas',
-      'jspdf': 'jspdf/dist/jspdf.min'
+      'jspdf': 'jspdf/dist/jspdf.min',
+      'three': 'three/build/three.module.js'
     }
   }
 })
