@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -14,7 +15,8 @@ export default defineConfig({
         'jspdf',
         'react-chartjs-2',
         'chart.js',
-        'three'
+        'three',
+        'three/examples/jsm/controls/OrbitControls'
       ],
       output: {
         globals: {
@@ -23,18 +25,20 @@ export default defineConfig({
           'jspdf': 'jspdf',
           'react-chartjs-2': 'ReactChartjs2',
           'chart.js': 'Chart',
-          'three': 'THREE'
+          'three': 'THREE',
+          'three/examples/jsm/controls/OrbitControls': 'OrbitControls'
         }
       }
     }
   },
   assetsInclude: ['**/*.jpg', '**/*.png'],
+  optimizeDeps: {
+    include: ['framer-motion']
+  },
   resolve: {
     alias: {
-      'framer-motion': 'framer-motion/dist/framer-motion',
-      'html2canvas': 'html2canvas/dist/html2canvas',
-      'jspdf': 'jspdf/dist/jspdf.min',
-      'three': 'three/build/three.module.js'
+      'three': 'three',
+      '@': path.resolve(__dirname, './src')
     }
   }
 })
