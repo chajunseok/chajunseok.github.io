@@ -6,7 +6,24 @@ export default defineConfig({
   plugins: [react()],
   base: '/',
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    rollupOptions: {
+      external: ['framer-motion', 'html2canvas', 'jspdf'],
+      output: {
+        globals: {
+          'framer-motion': 'framerMotion',
+          'html2canvas': 'html2canvas',
+          'jspdf': 'jspdf'
+        }
+      }
+    }
   },
-  assetsInclude: ['**/*.jpg', '**/*.png']
+  assetsInclude: ['**/*.jpg', '**/*.png'],
+  resolve: {
+    alias: {
+      'framer-motion': 'framer-motion/dist/framer-motion',
+      'html2canvas': 'html2canvas/dist/html2canvas',
+      'jspdf': 'jspdf/dist/jspdf.min'
+    }
+  }
 })

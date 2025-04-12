@@ -1,13 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
 import * as PS from '../styles/PlaygroundStyles';
 
 const PdfDownloadAnimation = () => {
   const contentRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [pdfLib, setPdfLib] = useState(null);
+  const [html2canvasLib, setHtml2canvasLib] = useState(null);
 
   // A4 사이즈 상수 (mm 단위)
   const A4_WIDTH_MM = 210;
@@ -16,12 +16,25 @@ const PdfDownloadAnimation = () => {
   // 화면에 표시할 때의 스케일 (실제 mm를 px로 변환)
   const SCALE_FACTOR = 3.78; // 1mm = 3.78px (일반적인 96 DPI 기준)
   
+  useEffect(() => {
+    const loadLibraries = async () => {
+      const [jsPDFModule, html2canvasModule] = await Promise.all([
+        import('jspdf'),
+        import('html2canvas')
+      ]);
+      setPdfLib(jsPDFModule.default);
+      setHtml2canvasLib(html2canvasModule.default);
+    };
+    
+    loadLibraries();
+  }, []);
+
   const handleDownload = async () => {
-    if (!contentRef.current) return;
+    if (!contentRef.current || !pdfLib || !html2canvasLib) return;
 
     setIsLoading(true);
     try {
-      const canvas = await html2canvas(contentRef.current, {
+      const canvas = await html2canvasLib(contentRef.current, {
         scale: 2,
         backgroundColor: '#0a192f',
         width: A4_WIDTH_MM * SCALE_FACTOR,
@@ -29,7 +42,7 @@ const PdfDownloadAnimation = () => {
       });
       
       const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF({
+      const pdf = new pdfLib({
         orientation: 'portrait',
         unit: 'mm',
         format: 'a4'
