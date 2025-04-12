@@ -10,34 +10,25 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       external: [
-        'framer-motion', 
-        'html2canvas', 
-        'jspdf',
-        'react-chartjs-2',
-        'chart.js',
-        'three',
         'three/examples/jsm/controls/OrbitControls'
-      ],
-      output: {
-        globals: {
-          'framer-motion': 'framerMotion',
-          'html2canvas': 'html2canvas',
-          'jspdf': 'jspdf',
-          'react-chartjs-2': 'ReactChartjs2',
-          'chart.js': 'Chart',
-          'three': 'THREE',
-          'three/examples/jsm/controls/OrbitControls': 'OrbitControls'
-        }
-      }
+      ]
     }
   },
   assetsInclude: ['**/*.jpg', '**/*.png'],
   optimizeDeps: {
-    include: ['framer-motion']
+    include: [
+      'framer-motion',
+      'react-router-dom',
+      'styled-components',
+      'three',
+      'jspdf',
+      'html2canvas',
+      'chart.js',
+      'react-chartjs-2'
+    ]
   },
   resolve: {
     alias: {
-      'three': 'three',
       '@': path.resolve(__dirname, './src')
     }
   }

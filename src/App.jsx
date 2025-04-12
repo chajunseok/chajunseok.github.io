@@ -20,8 +20,16 @@ const AnalyticsWrapper = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const fullPath = '/#' + location.pathname;
-    logPageView(fullPath);
+    // 현재 경로에서 앞의 '/' 제거
+    const currentPath = location.pathname.replace(/^\//, '');
+    // 실제 페이지 경로 구성
+    const pagePath = currentPath || 'home';
+    
+    // 페이지뷰 전송
+    logPageView(pagePath);
+    
+    // 페이지 제목 업데이트 (선택사항)
+    document.title = `Junseok | ${pagePath.charAt(0).toUpperCase() + pagePath.slice(1)}`;
   }, [location]);
 
   return null;
