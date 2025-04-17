@@ -5,16 +5,20 @@ import {
   Route,
   useLocation
 } from 'react-router-dom';
+import { loadFull } from "tsparticles";
+import { particlesOptions } from '@features/profile/constants/particlesConfig';
 
-import Home from './components/Profile/pages/Home';
-import Projects from './components/Profile/pages/Projects';
-import Contact from './components/Profile/pages/Contact';
-import Playground from './components/Profile/pages/Playground';
+// 경로 수정
+import Home from '@pages/Home';
+import Projects from '@pages/Projects';
+import Contact from '@pages/Contact';
+import Playground from '@pages/Playground';
 
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from '@components/ScrollToTop';
 import './App.css';
 
-import { initGA, logPageView } from './analytics';
+import { initGA, logPageView } from '@utils/analytics';
+import * as S from '@styles/index';
 
 const AnalyticsWrapper = () => {
   const location = useLocation();
@@ -35,7 +39,36 @@ const AnalyticsWrapper = () => {
   return null;
 };
 
-function App() {
+const Navigation = () => {
+  const location = useLocation();
+
+  const navItems = [
+    { path: '/', label: 'Home' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/playground', label: 'Playground' },
+    { path: '/contact', label: 'Contact' }
+  ];
+
+  return (
+    <S.SideNav>
+      {navItems.map(item => (
+        <S.NavItem 
+          key={item.path}
+          $active={location.pathname === item.path}
+          href={`#${item.path}`}
+        >
+          {item.label}
+        </S.NavItem>
+      ))}
+    </S.SideNav>
+  );
+};
+
+const App = () => {
+  const particlesInit = async (main) => {
+    await loadFull(main);
+  };
+
   useEffect(() => {
     initGA(); // 최초 GA 초기화
   }, []);
@@ -45,6 +78,12 @@ function App() {
       <ScrollToTop />
       <AnalyticsWrapper />
       <div className="App">
+        <S.ParticlesBackground
+          id="tsparticles"
+          init={particlesInit}
+          options={particlesOptions}
+        />
+        <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
@@ -54,6 +93,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
