@@ -590,6 +590,10 @@ export const ProjectInfoItem = styled.div`
     width: 20px;
     text-align: center;
   }
+
+  div {
+    display: flex;
+  }
 `;
 
 export const InfoLabel = styled.span`
