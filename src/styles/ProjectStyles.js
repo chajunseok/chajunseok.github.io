@@ -135,31 +135,12 @@ export const ProjectHeader = styled.div`
   text-align: left;
 `;
 
-export const ProjectTitle = styled.h3`
+export const ProjectTitle = styled.h2`
   color: #64ffda;
-  font-size: clamp(1.5rem, 2vw, 1.8rem);
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  margin-bottom: 1.5rem;
-  text-align: left;
-  position: relative;
-  padding-bottom: 0.5rem;
-  width: fit-content;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #64ffda;
-    opacity: 0.5;
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 1.6rem;
-  }
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(100, 255, 218, 0.2);
 `;
 
 export const ProjectDescription = styled.p`
@@ -575,17 +556,14 @@ export const TroubleItem = styled.div`
 
 export const CloseButton = styled.button`
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
   color: #64ffda;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: all 0.3s ease;
   
   &:hover {
@@ -597,49 +575,32 @@ export const CloseButton = styled.button`
 export const ProjectInfoGrid = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 `;
 
 export const ProjectInfoItem = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-
+  
   i {
-    font-size: 1.2rem;
     color: #64ffda;
+    font-size: 1.2rem;
     width: 20px;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  div {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2px;
-    gap: 2rem;
   }
 `;
 
-export const InfoLabel = styled.p`
+export const InfoLabel = styled.span`
   color: #64ffda;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   min-width: 80px;
-  font-weight: 500;
-  margin: 0;
-  display: flex;
-  align-items: center;
 `;
 
-export const InfoValue = styled.p`
-  color: #e6e6e6;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  margin: 0;
-  display: flex;
-  align-items: center;
+export const InfoValue = styled.span`
+  color: #fff;
+  font-size: 0.9rem;
 `;
 
 export const OverviewList = styled.ul`

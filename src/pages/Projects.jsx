@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { loadFull } from "tsparticles";
 import { projects } from '@features/profile/constants/projectsData';
 import * as S from '@styles/index';
 import * as PS from '@styles/ProjectStyles';
 import ProjectModal from '@features/profile/components/ProjectModal';
 
 const Projects = () => {
-  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -38,10 +35,6 @@ const Projects = () => {
     return () => slider.removeEventListener('scroll', handleScroll);
   }, [projects.length]);
 
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
-
   const handleSlide = (direction) => {
     const slider = sliderRef.current;
     const cardWidth = slider.children[0].offsetWidth + 32;
@@ -66,13 +59,6 @@ const Projects = () => {
   const closeModal = () => {
     setSelectedProject(null);
   };
-
-  const navItems = [
-    { path: '/', label: 'Home', active: false },
-    { path: '/projects', label: 'Projects', active: true },
-    { path: '/playground', label: 'Playground', active: false },
-    { path: '/contact', label: 'Contact', active: false }
-  ];
 
   return (
     <S.ProjectsContainer>

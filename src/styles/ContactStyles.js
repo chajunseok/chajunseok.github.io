@@ -100,4 +100,36 @@ export const CopyNotification = styled.div`
       transform: translate(-50%, 0);
     }
   }
+`;
+
+export const Notification = styled.div`
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  backdrop-filter: blur(10px);
+  animation: slideUp 0.3s ease;
+
+  i {
+    color: #64ffda;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 20px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
 `; 

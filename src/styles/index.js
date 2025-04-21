@@ -46,7 +46,6 @@ export const SideNav = styled.nav`
   left: 2rem;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
   display: flex;
   flex-direction: column;
   gap: 1rem;

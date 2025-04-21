@@ -4,13 +4,13 @@ export const skills = {
       name: "Python", 
       icon: "fab fa-python",
       level: 80,
-      description: "데이터 처리, AI/ML 개발 경험, 알고리즘 학습, 주 언어"
+      description: "데이터 처리, AI/ML 개발 경험, 알고리즘 학습"
     },
     {
       name: "JavaScript",
       icon: "fab fa-js",
       level: 60,
-      description: "ES6+, 비동기 처리, 모듈화 개발 가능"
+      description: "ES6+, 비동기 처리, 모듈화 개발 가능, 알고리즘 학습"
     },
     { 
       name: "HTML5", 
