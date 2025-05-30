@@ -8,10 +8,37 @@ const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const autoSlideInterval = 5000;
+    let intervalId;
+
+    const autoSlide = () => {
+      const slider = sliderRef.current;
+      if (!slider || isHovered) return;
+
+      const cardWidth = slider.children[0].offsetWidth + 32;
+      const maxIndex = projects.length - 1;
+      
+      const newIndex = currentIndex === maxIndex ? 0 : currentIndex + 1;
+      
+      slider.scrollTo({
+        left: cardWidth * newIndex,
+        behavior: 'smooth'
+      });
+      
+      setCurrentIndex(newIndex);
+    };
+
+    intervalId = setInterval(autoSlide, autoSlideInterval);
+
+    return () => clearInterval(intervalId);
+  }, [currentIndex, isHovered, projects.length]);
 
   useEffect(() => {
     const slider = sliderRef.current;
@@ -62,17 +89,25 @@ const Projects = () => {
 
   return (
     <S.ProjectsContainer>
-      <PS.ProjectsSlider ref={sliderRef}>
+      <PS.ProjectsSlider 
+        ref={sliderRef}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         {projects.map(project => (
           <PS.ProjectCard 
             key={project.id}
             $isMobile={project.isMobile}
+            onClick={() => openModal(project)}
           >
             <PS.ProjectImage 
               src={project.thumbnail} 
               alt={project.title} 
               $isMobile={project.isMobile}
-              onClick={() => project.demoUrl !== 0 && window.open(project.demoUrl, '_blank')}
+              onClick={(e) => {
+                e.stopPropagation();
+                project.demoUrl !== 0 && window.open(project.demoUrl, '_blank');
+              }}
             />
             <PS.ProjectContent $isMobile={project.isMobile}>
               <PS.ProjectHeader>
@@ -81,18 +116,33 @@ const Projects = () => {
               <PS.ProjectDescription>{project.description}</PS.ProjectDescription>
               <PS.ProjectLinks>
                 {project.demoUrl !== 0 && (
-                  <PS.ProjectLink href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                  <PS.ProjectLink 
+                    href={project.demoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <i className={project.title === "BeddingHome" ? "fas fa-globe" : "fas fa-external-link-alt"}></i>
                     <span>{project.title === "BeddingHome" ? "Live Site" : "Demo"}</span>
                   </PS.ProjectLink>
                 )}
                 {project.githubUrl && (
-                  <PS.ProjectLink href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                  <PS.ProjectLink 
+                    href={project.githubUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <i className="fab fa-github"></i>
                     <span>GitHub</span>
                   </PS.ProjectLink>
                 )}
-                <PS.ProjectLink onClick={() => openModal(project)}>
+                <PS.ProjectLink 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    openModal(project);
+                  }}
+                >
                   <i className="fas fa-info-circle"></i>
                   <span>Detail</span>
                 </PS.ProjectLink>

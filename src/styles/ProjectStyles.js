@@ -28,6 +28,14 @@ export const ProjectsSlider = styled.div`
   width: calc(100% - 5rem);
   margin-left: 5rem;
   padding-right: 10%;
+
+  &:hover {
+    cursor: grab;
+  }
+  
+  &:active {
+    cursor: grabbing;
+  }
 `;
 
 export const ProjectCard = styled.div`
@@ -228,6 +236,33 @@ export const ProjectLink = styled.a`
   span, 
   div {
     margin-left: 0.5rem;
+  }
+
+  // Detail 버튼을 위한 특별 스타일
+  &:last-child {
+    position: relative;
+    color: #64ffda;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      
+      i, span {
+        color: #fff;
+      }
+    }
+
+    i {
+      color: #64ffda;
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    span {
+      color: #64ffda;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
   }
 `;
 
