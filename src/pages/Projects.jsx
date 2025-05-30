@@ -122,8 +122,11 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <i className={project.title === "BeddingHome" ? "fas fa-globe" : "fas fa-external-link-alt"}></i>
-                    <span>{project.title === "BeddingHome" ? "Live Site" : "Demo"}</span>
+                    {/* <i className={project.title === "BeddingHome" ? "fas fa-globe" : "fas fa-external-link-alt"}></i>
+                    <span>{project.title === "BeddingHome" ? "Live Site" : "Demo"}</span> */}
+                    <i className="fas fa-external-link-alt"></i>
+                    <span>Demo</span>
+                    
                   </PS.ProjectLink>
                 )}
                 {project.githubUrl && (

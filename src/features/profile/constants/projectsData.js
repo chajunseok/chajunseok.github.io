@@ -212,7 +212,8 @@ export const projects = [
     ],
     tech: ["React.js", "THREE.js", "styled-components"],
     thumbnail: "/assets/projects/beddinghome.png",
-    demoUrl: "https://fabricz.store/",
+    // demoUrl: "https://fabricz.store/",
+    demoUrl: 0,
     isMobile: false,
     features: [
       "3D 맞춤 커튼 제작 기능 제공: 커튼의 색상, 소재, 길이 등을 실시간으로 변경하며 시뮬레이션 가능",
