@@ -110,12 +110,28 @@ src/
 │   ├── tech/          # 기술 데모 컴포넌트
 │   └── games/         # 미니 게임 컴포넌트
 ├── features/
-│   └── profile/       # 프로필, 기술스택, 수상경력 등
+│   └── profile/
+│       ├── components/  # 섹션·프로젝트 모달 컴포넌트
+│       └── constants/   # 프로필·경력·기술스택·프로젝트 데이터 (프로젝트 추가: projectsData.js)
 ├── pages/             # 페이지 컴포넌트 (Home, Projects 등)
 ├── styles/            # 전역 및 모듈 스타일 정의
 ├── utils/             # 공통 유틸리티 함수
 └── main.jsx           # 엔트리 포인트
 ```
+
+---
+
+## 🚀 실행 및 배포
+
+```bash
+npm install
+npm run dev       # 개발 서버
+npm run build     # dist/ 로 빌드
+npm run preview   # 빌드 결과 미리보기
+```
+
+- GA4를 쓰려면 루트에 `.env` 파일을 만들고 `VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX`를 넣습니다. 이 파일은 git에서 제외되며, 값이 없으면 GA 초기화만 건너뜁니다.
+- 배포는 `main` 브랜치에 push하면 GitHub Actions(`.github/workflows/deploy.yml`)가 빌드해서 `gh-pages` 브랜치로 올립니다. GA ID는 저장소 Secrets의 `VITE_GA_MEASUREMENT_ID`에서 읽습니다.
 
 ---
 
@@ -137,7 +153,7 @@ src/
 
 - 다크 테마 지원
 - 부드러운 모션 애니메이션
-- Particles.js 배경 효과
+- tsParticles 배경 효과
 - 직관적인 탭 및 네비게이션 구조
 
 ---
