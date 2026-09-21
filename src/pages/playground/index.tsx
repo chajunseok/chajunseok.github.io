@@ -1,12 +1,14 @@
 import { useTranslation } from 'react-i18next';
+import { DemoGrid } from '@/features/playground';
+import { SectionHeading } from '@/shared/ui';
 
 export default function PlaygroundPage() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('playground');
 
   return (
-    <section>
-      <h1 className="text-4xl font-bold">{t('nav.playground')}</h1>
-      <p className="text-muted-foreground mt-2">{t('page.wip')}</p>
-    </section>
+    <>
+      <SectionHeading as="h1" eyebrow={t('eyebrow')} title={t('title')} description={t('description')} />
+      <DemoGrid />
+    </>
   );
 }

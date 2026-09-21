@@ -50,7 +50,7 @@ We'll know we're right when **GA4 기준 프로젝트 상세 조회율이 리디
 | 1   | 아키텍처 기반      | 새 구조·도구 위에서 빈 화면 4개가 라우팅·언어 전환과 함께 동작 | complete    | —                                          |
 | 2   | 데이터 이전        | 프로젝트·프로필·기술 데이터가 타입과 함께 새 구조에 존재       | complete    | —                                          |
 | 3   | 핵심 화면 리디자인 | 방문자가 새 디자인의 Home·Projects·상세·Contact를 사용         | in-progress | `.claude/plans/portfolio-redesign.plan.md` |
-| 4   | Playground 이식    | 26개 체험 항목이 새 디자인 안에서 기존과 같이 동작             | pending     | —                                          |
+| 4   | Playground 이식    | 26개 체험 항목이 새 디자인 안에서 기존과 같이 동작             | in-progress | `.claude/plans/playground-port.plan.md`    |
 | 5   | 정리·출시          | 기존 코드 제거, README 갱신, 지표 목표 확인 후 main 배포       | pending     | —                                          |
 
 ## Open Questions

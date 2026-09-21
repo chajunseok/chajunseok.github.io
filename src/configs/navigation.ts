@@ -5,6 +5,7 @@ export const NAV_SCREEN_IDS = ['home', 'projects', 'playground', 'contact'] as c
 const PATH_OVERRIDES: Record<string, string> = {
   home: '/',
   'project-detail': '/projects/:projectId',
+  'playground-detail': '/playground/:demoId',
 };
 
 /** screenId → HashRouter 라우트 경로. */
@@ -14,4 +15,8 @@ export function toPath(screenId: string) {
 
 export function projectPath(projectId: string) {
   return `/projects/${projectId}`;
+}
+
+export function playgroundPath(demoId: string) {
+  return `/playground/${demoId}`;
 }

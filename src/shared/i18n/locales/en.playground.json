@@ -1,0 +1,276 @@
+{
+  "title": "Playground",
+  "eyebrow": "PLAYGROUND",
+  "description": "A lab of interactions and features for better user experience. Open a card to try it yourself.",
+  "category": {
+    "label": "Demo categories",
+    "effects": "Effects",
+    "tech": "Tech",
+    "challenge": "Challenge"
+  },
+  "back": "All demos",
+  "loading": "Loading demo…",
+  "loadFailed": "Couldn't load this demo. Please refresh the page.",
+  "demos": {
+    "music": {
+      "title": "Music Animation",
+      "description": "A visualizer that moves with the music",
+      "play": "Play",
+      "pause": "Pause",
+      "loadingAudio": "Loading audio...",
+      "playing": "Now playing...",
+      "idle": "Click to play"
+    },
+    "hover": {
+      "title": "Hover Animation",
+      "description": "Interaction effects on mouse hover",
+      "reveal": "Hover me!",
+      "prompt": "Hover over me!"
+    },
+    "loading": {
+      "title": "Loading Animation",
+      "description": "A loading animation that closes by itself",
+      "start": "Start Loading",
+      "message": "Loading..."
+    },
+    "simple-motion": {
+      "title": "Shape Morph Animation",
+      "description": "Scale, rotation, and corner radius changing in harmony"
+    },
+    "transform": {
+      "title": "Perspective Animation",
+      "description": "Depth through 3D transforms and shifting perspective",
+      "label": "Junseok Cha"
+    },
+    "layout": {
+      "title": "Layout Animation",
+      "description": "Position and size change smoothly as the layout changes",
+      "label": "Click me!"
+    },
+    "spring": {
+      "title": "Spring Motion",
+      "description": "Animation driven by natural spring physics",
+      "label": "Click me!"
+    },
+    "scroll-progress": {
+      "title": "Scroll Progress",
+      "description": "A circle that fills as you scroll",
+      "label": "Scroll me!",
+      "hint": "Keep scrolling!",
+      "region": "Scroll area"
+    },
+    "exit": {
+      "title": "Exit Animation",
+      "description": "Smooth exits when elements are removed",
+      "card": "Card {{id}}",
+      "reset": "Reset Cards"
+    },
+    "aos": {
+      "title": "Animate On Scroll",
+      "description": "Elements that appear as you scroll",
+      "fadeUp": "Fade Up",
+      "fadeLeft": "Fade Left",
+      "fadeRight": "Fade Right",
+      "zoomIn": "Zoom In",
+      "rotate": "Rotate",
+      "region": "Scroll area"
+    },
+    "modal": {
+      "title": "Modal Animation",
+      "description": "Smooth open and close transitions for a modal",
+      "open": "Click me!",
+      "greeting": "Nice to meet you!",
+      "close": "Close"
+    },
+    "timeline": {
+      "title": "Timeline Animation",
+      "description": "A sequence of changes that unfold over time",
+      "label": "Timeline"
+    },
+    "data-visualization": {
+      "title": "Data Visualization",
+      "description": "Statistics visualized with charts and graphs",
+      "chartTypeLabel": "Chart type",
+      "chartTypes": {
+        "line": "Line",
+        "bar": "Bar",
+        "doughnut": "Doughnut"
+      },
+      "labels": ["Data1", "Data2", "Data3", "Data4", "Data5", "Data6"],
+      "lineLabel": "Line data",
+      "barLabel": "Bar data"
+    },
+    "pdf-download": {
+      "title": "PDF Download",
+      "description": "Capture the current view and download it as a PDF",
+      "heading": "PDF Download Example",
+      "section": "Section {{n}}",
+      "sectionBody": "This area is converted to PDF, sized precisely to an A4 page.",
+      "note": "This example is designed to the A4 standard (210mm x 297mm). The PDF keeps the exact proportions.",
+      "madeBy": "Made by Junseok",
+      "download": "Download PDF",
+      "generating": "Generating PDF...",
+      "success": "PDF downloaded!",
+      "failed": "Could not create the PDF. Please try again."
+    },
+    "carousel": {
+      "title": "Carousel Slider",
+      "description": "A draggable, responsive carousel",
+      "prev": "Previous slide",
+      "next": "Next slide",
+      "goTo": "Go to slide {{n}}",
+      "hint": "Drag or click the arrows to change slides"
+    },
+    "pagination": {
+      "title": "Pagination",
+      "description": "Pagination with smooth transitions",
+      "label": "Pagination",
+      "first": "First page",
+      "prev": "Previous page",
+      "next": "Next page",
+      "last": "Last page",
+      "page": "Page {{n}}"
+    },
+    "date-filter": {
+      "title": "Date Filter",
+      "description": "Filter data by a date range",
+      "start": "Start date",
+      "end": "End date",
+      "search": "Search",
+      "reset": "Reset",
+      "filtering": "Filtering...",
+      "itemTitle": "Item {{n}}"
+    },
+    "select-filter": {
+      "title": "Select Filter",
+      "description": "Filter data by category and status",
+      "categoryLabel": "Category",
+      "statusLabel": "Status",
+      "categories": {
+        "all": "All",
+        "web": "Web",
+        "mobile": "Mobile",
+        "design": "Design"
+      },
+      "statuses": {
+        "all": "All",
+        "active": "Active",
+        "pending": "Pending",
+        "completed": "Completed"
+      },
+      "names": ["Project A", "Project B", "Project C", "Project D", "Project E", "Project F"]
+    },
+    "input-filter": {
+      "title": "Input Filter",
+      "description": "Filter with live text search",
+      "typeLabel": "Search by",
+      "termLabel": "Search term",
+      "types": {
+        "title": "Title",
+        "content": "Content",
+        "tag": "Tag"
+      },
+      "placeholder": "Enter a search term...",
+      "reset": "Reset",
+      "searching": "Searching...",
+      "items": [
+        {
+          "title": "Portfolio Website",
+          "content": "Portfolio website of frontend developer Junseok Cha",
+          "tags": ["React.js"]
+        },
+        {
+          "title": "WebRTC Live Streaming Service with Real-time Profanity Filtering and Korean/English Translation",
+          "content": "Real-time streaming website built on WebRTC",
+          "tags": ["Vue.js"]
+        },
+        {
+          "title": "Bedding Shopping Mall Project",
+          "content": "Bedding shopping mall website with an admin page for operators",
+          "tags": ["React.js", "Three.js", "Styled-components"]
+        },
+        {
+          "title": "Pothole Detection AI and Integrated Road Damage Management System",
+          "content": "On-device AI app plus a web admin page for operators",
+          "tags": ["Vue.js", "Pinia", "YOLOv8"]
+        },
+        {
+          "title": "Disaster Evacuation Mobile App Built on Distributed Big Data Processing",
+          "content": "App that guides people to safe shelters in Daejeon for each type of emergency",
+          "tags": ["Firebase", "React Native"]
+        }
+      ]
+    },
+    "sidebar": {
+      "title": "Toggle Sidebar",
+      "description": "A responsive sidebar with smooth animation",
+      "navLabel": "Sidebar menu",
+      "open": "Expand menu",
+      "close": "Collapse menu",
+      "menu": {
+        "dashboard": "Dashboard",
+        "profile": "Profile",
+        "projects": "Projects",
+        "settings": "Settings",
+        "logout": "Log out"
+      }
+    },
+    "infinite-scroll": {
+      "title": "Infinite Scroll",
+      "description": "Infinite scrolling built on Intersection Observer",
+      "item": "Item {{n}}",
+      "loading": "Loading..."
+    },
+    "floating-menu": {
+      "title": "Floating Menu",
+      "description": "A floating action button that reacts to scrolling",
+      "section": "Scroll area {{n}}",
+      "toTop": "Back to top",
+      "toBottom": "Go to bottom",
+      "open": "Open floating menu",
+      "close": "Close floating menu"
+    },
+    "three-viewer": {
+      "title": "3D Viewer",
+      "description": "A 3D scene you control with arrow keys and the mouse",
+      "hint": "Use your mouse and arrow keys to explore freely",
+      "zoom": "Zoom",
+      "rotate": "Rotate",
+      "canvasLabel": "3D star viewer. Drag with the mouse to rotate; focus it and use the up/down arrow keys to zoom."
+    },
+    "memory-game": {
+      "title": "Memory Card Game",
+      "description": "Flip cards to find matching pairs",
+      "moves": "Moves: {{moves}}",
+      "reset": "New game",
+      "complete": "🎉 Congrats! You cleared it in {{moves}} moves.",
+      "cardHidden": "Card {{index}}, face down",
+      "cardRevealed": "Card {{index}}, {{emoji}}"
+    },
+    "tic-tac-toe": {
+      "title": "Tic-Tac-Toe",
+      "description": "O and X on a 3×3 board",
+      "next": "Next turn: {{player}}",
+      "winner": "{{player}} wins!",
+      "draw": "It's a draw!",
+      "reset": "New game",
+      "cell": "Row {{row}}, column {{col}}, {{mark}}",
+      "empty": "empty"
+    },
+    "calculator": {
+      "title": "Calculator",
+      "description": "A visual calculator for basic arithmetic",
+      "keys": {
+        "clear": "Clear",
+        "toggleSign": "Toggle sign",
+        "percent": "Percent",
+        "divide": "Divide",
+        "multiply": "Multiply",
+        "subtract": "Subtract",
+        "add": "Add",
+        "equals": "Equals",
+        "decimal": "Decimal point"
+      }
+    }
+  }
+}
