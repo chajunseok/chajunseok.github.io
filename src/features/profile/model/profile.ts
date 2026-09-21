@@ -1,4 +1,10 @@
-import type { Award, Education, Profile } from './profile.types';
+import type { Award, Contact, Education, Profile } from './profile.types';
+
+export const contacts: Contact[] = [
+  { kind: 'email', value: 'wnstjr401@gmail.com', href: 'mailto:wnstjr401@gmail.com' },
+  { kind: 'github', value: 'github.com/chajunseok', href: 'https://github.com/chajunseok' },
+  { kind: 'phone', value: '010-6649-5142', href: 'tel:010-6649-5142' },
+];
 
 export const profile: Profile = {
   name: '차준석',

@@ -20,3 +20,12 @@ export interface Award {
   date: string;
   subtitle: string;
 }
+
+export type ContactKind = 'email' | 'github' | 'phone';
+
+export interface Contact {
+  kind: ContactKind;
+  /** 화면에 보이는 값 */
+  value: string;
+  href: string;
+}

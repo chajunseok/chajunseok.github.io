@@ -1,5 +1,9 @@
 import type { Project } from './project.types';
 
+export function findProject(id: string) {
+  return projects.find((project) => project.id === id);
+}
+
 export const projects: Project[] = [
   {
     id: 'beevarium',

@@ -1,6 +1,7 @@
 {
   "app": {
-    "title": "Junseok Cha | Frontend Developer"
+    "title": "Junseok Cha | Frontend Developer",
+    "name": "Junseok Cha"
   },
   "nav": {
     "label": "Main menu",
@@ -14,5 +15,56 @@
   },
   "page": {
     "wip": "Redesign in progress."
+  },
+  "home": {
+    "greeting": "Hi, I'm",
+    "role": "A frontend developer driven by challenge and growth.",
+    "ctaProjects": "View projects",
+    "ctaContact": "Get in touch",
+    "about": "About",
+    "skills": "Skills",
+    "skillsDescription": "Languages, frameworks, and tools I work with, and how deep I go.",
+    "journey": "Journey",
+    "experience": "Experience · Education",
+    "awards": "Awards"
+  },
+  "skill": {
+    "label": "Skill categories",
+    "group": {
+      "language": "Languages",
+      "framework": "Frameworks",
+      "ai": "AI",
+      "tool": "Tools"
+    }
+  },
+  "project": {
+    "eyebrow": "WORKS",
+    "description": "Projects I planned, built, and shipped. Open a card to see my role and troubleshooting.",
+    "tech": "Tech stack",
+    "back": "All projects",
+    "demo": "Live demo",
+    "github": "GitHub",
+    "period": "Period",
+    "team": "Team",
+    "type": "Type",
+    "overview": "Overview",
+    "features": "Key features",
+    "techReasons": "Why this stack",
+    "roles": "My role",
+    "troubleshooting": "Troubleshooting",
+    "problem": "PROBLEM",
+    "solution": "SOLUTION",
+    "review": "Retrospective"
+  },
+  "contact": {
+    "description": "Open to job offers and collaboration. Reach out through any channel.",
+    "kind": {
+      "email": "Email",
+      "github": "GitHub",
+      "phone": "Phone"
+    },
+    "copy": "Copy email",
+    "copied": "Email copied.",
+    "copyFailed": "Couldn't copy. Please select the address manually."
   }
 }
