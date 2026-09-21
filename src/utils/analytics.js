@@ -37,5 +37,4 @@ export const logEvent = (category, action, label, value = null) => {
     label,
     value
   });
-  console.log('[GA] Event:', { category, action, label, value });
 };
