@@ -1,0 +1,18 @@
+{
+  "app": {
+    "title": "차준석 | 프론트엔드 개발자"
+  },
+  "nav": {
+    "label": "주 메뉴",
+    "home": "홈",
+    "projects": "프로젝트",
+    "playground": "플레이그라운드",
+    "contact": "연락처"
+  },
+  "language": {
+    "toggle": "English"
+  },
+  "page": {
+    "wip": "리디자인 진행 중입니다."
+  }
+}

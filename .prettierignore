@@ -1,0 +1,7 @@
+dist
+legacy
+storybook-static
+coverage
+playwright-report
+test-results
+package-lock.json

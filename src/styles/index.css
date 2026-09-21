@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+/* Radix data-state 기반 enter/exit 유틸 */
+@import 'tw-animate-css';
+
+/* 디자인 토큰: HSL triplet(`H S% L%`)을 `hsl(var(--x))`로 소비한다. */
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-border: hsl(var(--border));
+}
+
+:root {
+  color-scheme: dark;
+  --background: 230 25% 7%;
+  --foreground: 220 20% 94%;
+  --card: 230 22% 11%;
+  --muted: 230 18% 16%;
+  --muted-foreground: 220 12% 62%;
+  --primary: 250 90% 68%;
+  --primary-foreground: 0 0% 100%;
+  --border: 230 16% 20%;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+}

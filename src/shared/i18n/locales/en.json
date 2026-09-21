@@ -1,0 +1,18 @@
+{
+  "app": {
+    "title": "Junseok Cha | Frontend Developer"
+  },
+  "nav": {
+    "label": "Main menu",
+    "home": "Home",
+    "projects": "Projects",
+    "playground": "Playground",
+    "contact": "Contact"
+  },
+  "language": {
+    "toggle": "한국어"
+  },
+  "page": {
+    "wip": "Redesign in progress."
+  }
+}
