@@ -1,0 +1,1 @@
+import{$ as e,z as t}from"./vendor-GvbaF9Gl.js";import{m as n,s as r}from"./shared-CDFciYAt.js";var i=e();function a(){let{t:e}=t();return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n,{as:`h1`,eyebrow:`CONTACT`,title:e(`nav.contact`),description:e(`contact.description`)}),(0,i.jsx)(r,{})]})}export{a as default};

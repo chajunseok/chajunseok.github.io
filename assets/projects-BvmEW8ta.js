@@ -1,1 +1,0 @@
-import{$ as e,z as t}from"./vendor-GvbaF9Gl.js";import{m as n}from"./shared-BOjfCqN-.js";import{t as r}from"./project-Ebi_wrl5.js";var i=e();function a(){let{t:e}=t();return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n,{as:`h1`,eyebrow:e(`project.eyebrow`),title:e(`nav.projects`),description:e(`project.description`)}),(0,i.jsx)(r,{})]})}export{a as default};
