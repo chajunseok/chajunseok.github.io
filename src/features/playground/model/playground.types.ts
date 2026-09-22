@@ -1,4 +1,5 @@
 import type { ComponentType, LazyExoticComponent } from 'react';
+import type { LucideIcon } from 'lucide-react';
 import type koPlayground from '@/shared/i18n/locales/ko.playground.json';
 
 export type DemoCategory = 'effects' | 'tech' | 'challenge';
@@ -10,5 +11,7 @@ export interface Demo {
   id: DemoId;
   category: DemoCategory;
   tech: string[];
+  /** 목록 카드의 미리보기 타일에 그리는 아이콘 */
+  icon: LucideIcon;
   Component: LazyExoticComponent<ComponentType>;
 }

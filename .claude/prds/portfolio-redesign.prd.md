@@ -45,13 +45,13 @@ We'll know we're right when **GA4 기준 프로젝트 상세 조회율이 리디
 
 ## Delivery Milestones
 
-| #   | Milestone          | Outcome                                                        | Status      | Plan                                       |
-| --- | ------------------ | -------------------------------------------------------------- | ----------- | ------------------------------------------ |
-| 1   | 아키텍처 기반      | 새 구조·도구 위에서 빈 화면 4개가 라우팅·언어 전환과 함께 동작 | complete    | —                                          |
-| 2   | 데이터 이전        | 프로젝트·프로필·기술 데이터가 타입과 함께 새 구조에 존재       | complete    | —                                          |
-| 3   | 핵심 화면 리디자인 | 방문자가 새 디자인의 Home·Projects·상세·Contact를 사용         | complete    | `.claude/plans/portfolio-redesign.plan.md` |
-| 4   | Playground 이식    | 26개 체험 항목이 새 디자인 안에서 기존과 같이 동작             | complete    | `.claude/plans/playground-port.plan.md`    |
-| 5   | 정리·출시          | 기존 코드 제거, README 갱신, 지표 목표 확인 후 main 배포       | in-progress | `.claude/plans/release-cleanup.plan.md`    |
+| #   | Milestone          | Outcome                                                        | Status   | Plan                                       |
+| --- | ------------------ | -------------------------------------------------------------- | -------- | ------------------------------------------ |
+| 1   | 아키텍처 기반      | 새 구조·도구 위에서 빈 화면 4개가 라우팅·언어 전환과 함께 동작 | complete | —                                          |
+| 2   | 데이터 이전        | 프로젝트·프로필·기술 데이터가 타입과 함께 새 구조에 존재       | complete | —                                          |
+| 3   | 핵심 화면 리디자인 | 방문자가 새 디자인의 Home·Projects·상세·Contact를 사용         | complete | `.claude/plans/portfolio-redesign.plan.md` |
+| 4   | Playground 이식    | 26개 체험 항목이 새 디자인 안에서 기존과 같이 동작             | complete | `.claude/plans/playground-port.plan.md`    |
+| 5   | 정리·출시          | 기존 코드 제거, README 갱신, 지표 목표 확인 후 main 배포       | complete | `.claude/plans/release-cleanup.plan.md`    |
 
 ## Open Questions
 
@@ -62,7 +62,9 @@ We'll know we're right when **GA4 기준 프로젝트 상세 조회율이 리디
 - [x] 1·2단계 결과의 커밋 시점 — redesign 브랜치 `df12fa7`로 커밋 (2026-09-21).
 - [ ] Playwright E2E(3 시나리오) 미실행 — chromium 다운로드가 이 네트워크에서 타임아웃. 같은 흐름은 실제 브라우저(DevTools)로 확인함. 다른 네트워크에서 `npx playwright install chromium && npm run test:e2e` 재시도.
 - [ ] README 스크린샷은 preview PNG 4장(2026-09-22) — 배포 후 GIF로 교체 여부.
-- [ ] 배포본 Lighthouse Performance 점수 확인 (로컬 trace: LCP 1.73s, CLS 0 / mobile·4x CPU·Slow 4G).
+- [x] 배포 완료 2026-09-22 (`f542a3b`). 첫 배포(`2dd8dc3`)는 react-ga4 CJS 인터롭으로 빈 화면 — 로컬에 `.env`(GA ID)가 없어 초기화 경로가 실행되지 않아 검증에서 놓침. 핫픽스 `c9c2046`로 복구. 재발 방지: Playwright가 GA ID를 넣은 production 번들로 실행.
+- [ ] 배포본 Lighthouse Performance 점수 — 배포본 trace는 LCP 0.5s(캐시 영향 가능), 로컬 콜드 측정 1.69s / CLS 0. PageSpeed Insights로 필드 값 재확인.
+- [ ] 로컬 `.env`에 `VITE_GA_MEASUREMENT_ID`를 두고 빌드해야 GA 초기화 경로까지 로컬에서 검증된다.
 
 ## Risks
 

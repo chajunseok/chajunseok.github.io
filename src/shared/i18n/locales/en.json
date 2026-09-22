@@ -64,6 +64,10 @@
       "github": "GitHub",
       "phone": "Phone"
     },
+    "action": {
+      "github": "Open in new tab",
+      "phone": "Call"
+    },
     "copy": "Copy email",
     "copied": "Email copied.",
     "copyFailed": "Couldn't copy. Please select the address manually."
