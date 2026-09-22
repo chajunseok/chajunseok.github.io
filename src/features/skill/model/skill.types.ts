@@ -5,7 +5,7 @@ export interface Skill {
   description: string;
 }
 
-export type SkillGroupId = 'language' | 'framework' | 'ai' | 'tool';
+export type SkillGroupId = 'frontend' | 'backend' | 'ai' | 'tool';
 
 export interface SkillGroup {
   id: SkillGroupId;

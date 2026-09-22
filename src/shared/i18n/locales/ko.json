@@ -24,7 +24,7 @@
     "ctaContact": "연락하기",
     "about": "소개",
     "skills": "기술 스택",
-    "skillsDescription": "주로 다루는 언어·프레임워크·도구와 숙련도입니다.",
+    "skillsDescription": "프론트엔드·백엔드·AI·도구별로 주로 다루는 기술과 숙련도입니다.",
     "journey": "걸어온 길",
     "experience": "경력 · 학력",
     "awards": "수상"
@@ -32,8 +32,8 @@
   "skill": {
     "label": "기술 분류",
     "group": {
-      "language": "언어",
-      "framework": "프레임워크",
+      "frontend": "프론트엔드",
+      "backend": "백엔드 · DB",
       "ai": "AI",
       "tool": "도구"
     }

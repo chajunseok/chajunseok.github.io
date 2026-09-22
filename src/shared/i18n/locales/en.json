@@ -24,7 +24,7 @@
     "ctaContact": "Get in touch",
     "about": "About",
     "skills": "Skills",
-    "skillsDescription": "Languages, frameworks, and tools I work with, and how deep I go.",
+    "skillsDescription": "What I work with across frontend, backend, AI, and tooling, and how deep I go.",
     "journey": "Journey",
     "experience": "Experience · Education",
     "awards": "Awards"
@@ -32,8 +32,8 @@
   "skill": {
     "label": "Skill categories",
     "group": {
-      "language": "Languages",
-      "framework": "Frameworks",
+      "frontend": "Frontend",
+      "backend": "Backend · DB",
       "ai": "AI",
       "tool": "Tools"
     }
