@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+/* Radix data-state 기반 enter/exit 유틸 */
+@import 'tw-animate-css';
+
+/* 디자인 토큰: HSL triplet(`H S% L%`)을 `hsl(var(--x))`로 소비한다. */
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-destructive: hsl(var(--destructive));
+  --color-border: hsl(var(--border));
+}
+
+@theme {
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+  --background: 230 25% 7%;
+  --foreground: 220 20% 94%;
+  --card: 230 22% 11%;
+  --muted: 230 18% 16%;
+  --muted-foreground: 220 12% 66%;
+  --primary: 250 90% 70%;
+  --primary-foreground: 230 25% 7%;
+  --accent: 190 90% 60%;
+  --destructive: 0 80% 68%;
+  --border: 230 16% 20%;
+}
+
+/* 포인터 위치(usePointerSpotlight가 쓰는 CSS 변수)를 중심으로 번지는 빛 */
+@utility spotlight {
+  background: radial-gradient(
+    600px circle at var(--pointer-x, 50%) var(--pointer-y, -20%),
+    hsl(var(--primary) / 0.12),
+    transparent 60%
+  );
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+/* 은은한 grain 질감 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

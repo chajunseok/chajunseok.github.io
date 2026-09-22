@@ -1,0 +1,278 @@
+{
+  "title": "플레이그라운드",
+  "eyebrow": "PLAYGROUND",
+  "description": "사용자 경험을 위한 인터랙션·기능 실험 공간입니다. 카드를 눌러 직접 체험해 보세요.",
+  "category": {
+    "label": "데모 분류",
+    "effects": "Effects",
+    "tech": "Tech",
+    "challenge": "Challenge"
+  },
+  "back": "플레이그라운드 목록",
+  "loading": "데모를 불러오는 중…",
+  "loadFailed": "데모를 불러오지 못했습니다. 새로고침해 주세요.",
+  "demos": {
+    "music": {
+      "title": "Music Animation",
+      "description": "음악 재생과 함께 움직이는 시각화 효과",
+      "play": "재생",
+      "pause": "일시정지",
+      "loadingAudio": "오디오 로딩중...",
+      "playing": "음악 재생중...",
+      "idle": "클릭하여 재생",
+      "failed": "오디오를 불러오지 못했습니다."
+    },
+    "hover": {
+      "title": "Hover Animation",
+      "description": "마우스 hover 시 다양한 인터랙션 효과",
+      "reveal": "Hover me!",
+      "prompt": "마우스를 올려보세요!"
+    },
+    "loading": {
+      "title": "로딩 Animation",
+      "description": "자동으로 닫히는 로딩 애니메이션",
+      "start": "Start Loading",
+      "message": "로딩중..."
+    },
+    "simple-motion": {
+      "title": "요소 변화 Animation",
+      "description": "크기 변화, 회전, 모서리 둥글기가 조화로운 애니메이션"
+    },
+    "transform": {
+      "title": "시점 변화 Animation",
+      "description": "3D 변환과 시점 변화를 통한 입체적인 애니메이션",
+      "label": "차준석"
+    },
+    "layout": {
+      "title": "레이아웃 Animation",
+      "description": "요소의 위치와 크기가 자연스럽게 변화하는 레이아웃 애니메이션",
+      "label": "Click me!"
+    },
+    "spring": {
+      "title": "스프링 Motion",
+      "description": "자연스러운 스프링 물리 효과를 적용한 애니메이션",
+      "label": "Click me!"
+    },
+    "scroll-progress": {
+      "title": "스크롤 Progress",
+      "description": "스크롤 진행도에 따라 원이 채워지는 인터랙티브 애니메이션",
+      "label": "Scroll me!",
+      "hint": "계속 스크롤 해보세요!",
+      "region": "스크롤 영역"
+    },
+    "exit": {
+      "title": "퇴장 Animation",
+      "description": "요소가 사라질 때 자연스러운 퇴장 애니메이션",
+      "card": "Card {{id}}",
+      "reset": "Reset Cards"
+    },
+    "aos": {
+      "title": "AOS Animation",
+      "description": "스크롤에 따라 요소가 나타나는 애니메이션",
+      "fadeUp": "Fade Up",
+      "fadeLeft": "Fade Left",
+      "fadeRight": "Fade Right",
+      "zoomIn": "Zoom In",
+      "rotate": "Rotate",
+      "region": "스크롤 영역"
+    },
+    "modal": {
+      "title": "Modal Animation",
+      "description": "모달 열고 닫힐 때의 부드러운 애니메이션",
+      "open": "Click me!",
+      "greeting": "반가워요!",
+      "close": "닫기"
+    },
+    "timeline": {
+      "title": "타임라인 Animation",
+      "description": "시간에 따라 연속적으로 변화하는 애니메이션",
+      "label": "Timeline"
+    },
+    "data-visualization": {
+      "title": "데이터 시각화",
+      "description": "차트와 그래프를 활용한 통계 데이터 시각화",
+      "chartTypeLabel": "차트 종류",
+      "chartTypes": {
+        "line": "Line",
+        "bar": "Bar",
+        "doughnut": "Doughnut"
+      },
+      "labels": ["Data1", "Data2", "Data3", "Data4", "Data5", "Data6"],
+      "lineLabel": "라인 데이터",
+      "barLabel": "바 데이터"
+    },
+    "pdf-download": {
+      "title": "PDF 다운로드",
+      "description": "현재 화면을 PDF로 변환하여 다운로드",
+      "heading": "PDF 다운로드 예시",
+      "section": "섹션 {{n}}",
+      "sectionBody": "이 영역은 PDF로 변환됩니다. A4 용지 크기에 맞춰 정확하게 변환됩니다.",
+      "note": "이 예시는 A4 규격(210mm x 297mm)에 맞춰 디자인되었습니다. PDF로 변환 시 정확한 비율로 출력됩니다.",
+      "madeBy": "Made by Junseok",
+      "download": "PDF 다운로드",
+      "generating": "PDF 생성 중...",
+      "success": "PDF 다운로드 완료!",
+      "failed": "PDF를 만들지 못했습니다. 다시 시도해 주세요."
+    },
+    "carousel": {
+      "title": "캐러셀 슬라이더",
+      "description": "드래그 가능한 반응형 캐러셀 컴포넌트",
+      "prev": "이전 슬라이드",
+      "next": "다음 슬라이드",
+      "goTo": "{{n}}번 슬라이드로 이동",
+      "hint": "드래그 또는 화살표를 클릭하여 슬라이드를 넘겨보세요"
+    },
+    "pagination": {
+      "title": "페이지네이션",
+      "description": "부드러운 전환 효과가 있는 페이지네이션",
+      "label": "페이지 이동",
+      "first": "첫 페이지",
+      "prev": "이전 페이지",
+      "next": "다음 페이지",
+      "last": "마지막 페이지",
+      "page": "{{n}} 페이지"
+    },
+    "date-filter": {
+      "title": "날짜 필터",
+      "description": "날짜 범위로 데이터를 필터링하는 검색 기능",
+      "start": "시작일",
+      "end": "종료일",
+      "search": "검색",
+      "reset": "초기화",
+      "filtering": "필터링 중...",
+      "itemTitle": "Item {{n}}",
+      "noResults": "조건에 맞는 항목이 없습니다."
+    },
+    "select-filter": {
+      "title": "Select 필터",
+      "description": "카테고리와 상태로 데이터를 필터링하는 검색 기능",
+      "categoryLabel": "카테고리",
+      "statusLabel": "상태",
+      "categories": {
+        "all": "전체",
+        "web": "웹",
+        "mobile": "모바일",
+        "design": "디자인"
+      },
+      "statuses": {
+        "all": "전체",
+        "active": "진행중",
+        "pending": "대기중",
+        "completed": "완료"
+      },
+      "names": ["프로젝트 A", "프로젝트 B", "프로젝트 C", "프로젝트 D", "프로젝트 E", "프로젝트 F"]
+    },
+    "input-filter": {
+      "title": "Input 필터",
+      "description": "실시간 텍스트 검색이 가능한 필터링 기능",
+      "typeLabel": "검색 기준",
+      "termLabel": "검색어",
+      "types": {
+        "title": "제목",
+        "content": "내용",
+        "tag": "태그"
+      },
+      "placeholder": "검색어를 입력하세요...",
+      "reset": "초기화",
+      "searching": "검색 중...",
+      "items": [
+        {
+          "title": "포트폴리오 웹사이트",
+          "content": "프론트엔드 개발자 차준석의 포트폴리오 웹사이트",
+          "tags": ["React.js"]
+        },
+        {
+          "title": "Web-Rtc 기반 실시간 욕설 필터링 + 한/영 번역 웹 라이브 스트리밍 서비스",
+          "content": "WebRtc를 활용한 실시간 스트리밍 웹사이트",
+          "tags": ["Vue.js"]
+        },
+        {
+          "title": "침구류 쇼핑몰 프로젝트",
+          "content": "침구류 쇼핑몰 웹사이트와 운영자를 위한 관리 페이지",
+          "tags": ["React.js", "Three.js", "Styled-components"]
+        },
+        {
+          "title": "포트홀 자동 탐지 AI 및 도로 파손 통합 관리 시스템",
+          "content": "온디바이스 AI를 활용한 애플리케이션과 관리 운영자를 위한 웹 관리페이지",
+          "tags": ["Vue.js", "Pinia", "YOLOv8"]
+        },
+        {
+          "title": "빅데이터 분산처리를 기반한 재난 대피 모바일 애플리케이션 서비스",
+          "content": "대전 시의 비상 상황 별 안전 대피소를 안내하는 애플리케이션",
+          "tags": ["Firebase", "React Native"]
+        }
+      ]
+    },
+    "sidebar": {
+      "title": "토글 사이드바",
+      "description": "부드러운 애니메이션이 적용된 반응형 사이드바",
+      "navLabel": "사이드바 메뉴",
+      "open": "메뉴 펼치기",
+      "close": "메뉴 접기",
+      "menu": {
+        "dashboard": "대시보드",
+        "profile": "프로필",
+        "projects": "프로젝트",
+        "settings": "설정",
+        "logout": "로그아웃"
+      }
+    },
+    "infinite-scroll": {
+      "title": "무한 스크롤",
+      "description": "Intersection Observer를 활용한 무한 스크롤 구현",
+      "item": "Item {{n}}",
+      "loading": "Loading..."
+    },
+    "floating-menu": {
+      "title": "플로팅 메뉴",
+      "description": "스크롤에 반응하는 플로팅 액션 버튼",
+      "section": "스크롤 영역 {{n}}",
+      "toTop": "맨 위로",
+      "toBottom": "맨 아래로",
+      "open": "플로팅 메뉴 열기",
+      "close": "플로팅 메뉴 닫기"
+    },
+    "three-viewer": {
+      "title": "3D 뷰어",
+      "description": "방향키와 마우스로 조작하는 3D 효과",
+      "hint": "마우스와 방향키로 자유롭게 조작해보세요",
+      "zoom": "Zoom",
+      "rotate": "Rotate",
+      "canvasLabel": "3D 별 뷰어. 마우스로 드래그해 회전하고, 포커스한 뒤 위/아래 방향키로 확대·축소합니다."
+    },
+    "memory-game": {
+      "title": "메모리 카드 게임",
+      "description": "짝을 맞추는 카드 매칭 게임",
+      "moves": "움직임: {{moves}}",
+      "reset": "새 게임",
+      "complete": "🎉 축하해요! {{moves}} 번 만에 성공하셨네요?",
+      "cardHidden": "{{index}}번 카드, 뒤집히지 않음",
+      "cardRevealed": "{{index}}번 카드, {{emoji}}"
+    },
+    "tic-tac-toe": {
+      "title": "틱택토 게임",
+      "description": "3x3 보드에서 진행하는 O/X 게임",
+      "next": "다음 차례: {{player}}",
+      "winner": "{{player}}가 승리했습니다!",
+      "draw": "무승부입니다!",
+      "reset": "새 게임",
+      "cell": "{{row}}행 {{col}}열, {{mark}}",
+      "empty": "빈 칸"
+    },
+    "calculator": {
+      "title": "계산기",
+      "description": "기본 연산이 가능한 시각화 계산기",
+      "keys": {
+        "clear": "모두 지우기",
+        "toggleSign": "부호 바꾸기",
+        "percent": "퍼센트",
+        "divide": "나누기",
+        "multiply": "곱하기",
+        "subtract": "빼기",
+        "add": "더하기",
+        "equals": "계산",
+        "decimal": "소수점"
+      }
+    }
+  }
+}

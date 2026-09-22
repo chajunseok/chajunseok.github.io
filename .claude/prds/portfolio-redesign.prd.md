@@ -1,0 +1,78 @@
+# 포트폴리오 전면 리디자인
+
+## Problem
+
+채용 담당자·면접관이 이력서 링크로 포트폴리오에 들어오지만, 사이트는 2025년 5월 이후 갱신이 멈춰 현재 역량을 보여주지 못한다.
+콘텐츠는 오래됐고, 사이트 자체의 기술 스택·구조가 지금 쓰는 스택(TypeScript, 계층형 아키텍처)과 달라 "사이트가 곧 실력의 증거"가 되지 못한다.
+디자인도 평범해 인상에 남지 않고, 구조가 정리되지 않아 새 프로젝트를 추가하는 비용이 크다 — 방치할수록 격차가 커진다.
+
+## Evidence
+
+- Assumption — 방문자 행동 문제(이탈·상세 미조회)는 GA4 데이터로 검증 필요. 현재 기준값(baseline) 미확보.
+- 관찰: 마지막 콘텐츠 커밋 2025-05-30, 이후 진행한 프로젝트가 사이트에 없음 (작성자 확인).
+- 관찰: 기존 코드는 JS + styled-components + React 18, 전역 스타일 export 충돌 경고가 빌드에 남아 있음.
+
+## Users
+
+- **Primary**: 프론트엔드 포지션 채용 담당자·기술 면접관 — 이력서/지원서의 링크를 눌러 짧은 시간 안에 역량을 판단하려 함.
+- **Not for**: 외주 클라이언트 영업, 개발자 커뮤니티용 기술 블로그.
+
+## Hypothesis
+
+We believe **현재 스택으로 다시 만든 인터랙티브 포트폴리오(프로젝트별 공유 가능한 상세 페이지 포함)** will **방문자가 짧은 시간 안에 프로젝트 깊이까지 확인하게 해 역량 전달력을 높일 것** for **채용 담당자·면접관**.
+We'll know we're right when **GA4 기준 프로젝트 상세 조회율이 리디자인 전 기준값보다 오르고, Lighthouse 전 항목이 90 이상이며, 새 프로젝트 추가가 데이터 수정만으로 끝날 때**.
+
+## Success Metrics
+
+| Metric                                                    | Target                                                          | How measured                                     |
+| --------------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------ |
+| 프로젝트 상세 조회율 (상세 페이지뷰 / 전체 세션)          | 기준값 대비 증가 — 목표 수치 TBD                                | GA4, 배포 전 4주 기준값 확보 후 배포 후 4주 비교 |
+| Lighthouse (Performance·Accessibility·Best Practices·SEO) | 전 항목 90+ (모바일)                                            | 배포본 Home·Projects·상세 페이지 측정            |
+| 새 프로젝트 추가 비용                                     | 데이터 1곳 + 썸네일 추가만으로 목록·상세 노출, 화면 코드 수정 0 | 실제 프로젝트 1건 추가로 확인                    |
+
+## Scope
+
+**MVP** — 아래를 모두 갖춘 뒤 한 번에 교체 배포한다 (기존 기능 퇴보 없음).
+
+- 인터랙티브 디자인의 Home · Projects(목록) · 프로젝트 상세(전용 URL) · Contact
+- Playground 전체(Effects 12 · Tech 10 · Challenge 4) 이식 — 기존 동작 유지
+- 기존 코드 제거, README 갱신, GitHub Pages 배포 유지
+
+**Out of scope**
+
+- 백엔드(Spring Boot 등) — GitHub Pages 정적 배포 유지. 서버가 필요한 기능이 생기면 별도 검토.
+- 콘텐츠 갱신(새 프로젝트·경력 추가, 문구 수정) 및 영문 콘텐츠 번역 — 리디자인 후 별도 작업. UI 문구만 ko/en 제공.
+
+## Delivery Milestones
+
+| #   | Milestone          | Outcome                                                        | Status      | Plan                                       |
+| --- | ------------------ | -------------------------------------------------------------- | ----------- | ------------------------------------------ |
+| 1   | 아키텍처 기반      | 새 구조·도구 위에서 빈 화면 4개가 라우팅·언어 전환과 함께 동작 | complete    | —                                          |
+| 2   | 데이터 이전        | 프로젝트·프로필·기술 데이터가 타입과 함께 새 구조에 존재       | complete    | —                                          |
+| 3   | 핵심 화면 리디자인 | 방문자가 새 디자인의 Home·Projects·상세·Contact를 사용         | complete    | `.claude/plans/portfolio-redesign.plan.md` |
+| 4   | Playground 이식    | 26개 체험 항목이 새 디자인 안에서 기존과 같이 동작             | complete    | `.claude/plans/playground-port.plan.md`    |
+| 5   | 정리·출시          | 기존 코드 제거, README 갱신, 지표 목표 확인 후 main 배포       | in-progress | `.claude/plans/release-cleanup.plan.md`    |
+
+## Open Questions
+
+- [ ] 상세 조회율 목표 수치 — GA4 기준값 확인 후 결정.
+- [ ] 라이트 테마 지원 여부 — 현재는 다크 단일 테마로 가정.
+- [ ] Playground 26개 중 인터랙티브 디자인과 톤이 맞지 않는 항목의 처리(그대로 이식 vs 재디자인).
+- [ ] 인터랙티브 모션이 Lighthouse Performance 90+와 충돌할 경우 우선순위.
+- [x] 1·2단계 결과의 커밋 시점 — redesign 브랜치 `df12fa7`로 커밋 (2026-09-21).
+- [ ] Playwright E2E(3 시나리오) 미실행 — chromium 다운로드가 이 네트워크에서 타임아웃. 같은 흐름은 실제 브라우저(DevTools)로 확인함. 다른 네트워크에서 `npx playwright install chromium && npm run test:e2e` 재시도.
+- [ ] README 스크린샷은 preview PNG 4장(2026-09-22) — 배포 후 GIF로 교체 여부.
+- [ ] 배포본 Lighthouse Performance 점수 확인 (로컬 trace: LCP 1.73s, CLS 0 / mobile·4x CPU·Slow 4G).
+
+## Risks
+
+| Risk                                                      | Likelihood | Impact | Mitigation                                                                                          |
+| --------------------------------------------------------- | ---------- | ------ | --------------------------------------------------------------------------------------------------- |
+| 모션·3D·파티클로 성능 목표 미달                           | Med        | High   | 무거운 요소는 필요한 화면에서만 지연 로드, 저사양·모션 축소 설정 존중, 마일스톤마다 Lighthouse 측정 |
+| Playground 의존성 메이저 업그레이드로 일부 데모 동작 변경 | Med        | Med    | 항목별로 기존 동작과 비교 확인 후 이식                                                              |
+| 리디자인이 길어져 사이트가 계속 구버전으로 노출           | Med        | Med    | redesign 브랜치에서 진행, 마일스톤 단위로 진척 확인                                                 |
+| 해시 라우팅 환경의 상세 페이지 GA 추적 누락               | Low        | Med    | 상세 진입 시 페이지뷰 발생 여부를 배포 전 확인                                                      |
+
+---
+
+_Status: DRAFT — requirements only. Implementation planning pending via /plan._
