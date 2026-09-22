@@ -24,12 +24,24 @@ function BulletList({ items }: { items: string[] }) {
   return (
     <ul className="space-y-3">
       {items.map((item) => (
-        <li key={item} className="text-muted-foreground flex gap-3 leading-relaxed">
+        <li key={item} className="flex gap-3 leading-relaxed">
           <span aria-hidden className="bg-primary mt-2.5 size-1.5 shrink-0 rounded-full" />
           <span className="whitespace-pre-line">{item}</span>
         </li>
       ))}
     </ul>
+  );
+}
+
+function Paragraphs({ items }: { items: string[] }) {
+  return (
+    <div className="text-muted-foreground space-y-4 leading-relaxed">
+      {items.map((item) => (
+        <p key={item} className="whitespace-pre-line">
+          {item}
+        </p>
+      ))}
+    </div>
   );
 }
 
@@ -47,36 +59,28 @@ export function ProjectDetail({ project }: { project: Project }) {
         {t('project.back')}
       </Link>
 
-      <header className="mt-8">
-        <p className="text-primary text-sm font-medium">{project.organization}</p>
-        <h1 className="mt-3 text-4xl font-extrabold tracking-tight md:text-6xl">{project.title}</h1>
-        <p className="text-muted-foreground mt-6 text-lg leading-relaxed">{project.description}</p>
+      <header className="mt-6">
+        <p className="text-primary font-mono text-sm tracking-widest">{t('project.eyebrow')}</p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight md:text-5xl">{project.title}</h1>
+        <p className="text-muted-foreground mt-4 text-lg leading-relaxed">{project.description}</p>
 
-        <dl className="mt-8 grid gap-4 text-sm sm:grid-cols-3">
+        <dl className="mt-6 grid gap-4 text-sm sm:grid-cols-3">
           {(
             [
               ['project.period', project.period],
-              ['project.team', project.team],
+              ['project.team', `${project.team} · ${project.organization}`],
               ['project.type', project.serviceType],
             ] as const
           ).map(([labelKey, value]) => (
             <div key={labelKey}>
-              <dt className="text-muted-foreground">{t(labelKey)}</dt>
+              <dt className="text-muted-foreground text-xs font-medium">{t(labelKey)}</dt>
               <dd className="mt-1 font-medium">{value}</dd>
             </div>
           ))}
         </dl>
 
-        <ul aria-label={t('project.tech')} className="mt-6 flex flex-wrap gap-1.5">
-          {project.tech.map((tech) => (
-            <li key={tech}>
-              <Badge variant="accent">{tech}</Badge>
-            </li>
-          ))}
-        </ul>
-
         {(project.demoUrl || project.githubUrl) && (
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             {project.demoUrl && (
               <Button asChild>
                 <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackClick('demo')}>
@@ -107,11 +111,21 @@ export function ProjectDetail({ project }: { project: Project }) {
         alt=""
         width={1200}
         height={675}
-        className="border-border bg-muted my-12 aspect-video w-full rounded-2xl border object-contain"
+        className="border-border bg-muted mt-12 mb-12 aspect-video w-full rounded-2xl border object-contain"
       />
 
+      <DetailSection id="tech" title={t('project.tech')}>
+        <ul aria-label={t('project.tech')} className="flex flex-wrap gap-1.5">
+          {project.tech.map((tech) => (
+            <li key={tech}>
+              <Badge variant="accent">{tech}</Badge>
+            </li>
+          ))}
+        </ul>
+      </DetailSection>
+
       <DetailSection id="overview" title={t('project.overview')}>
-        <BulletList items={project.overview} />
+        <Paragraphs items={project.overview} />
       </DetailSection>
 
       <DetailSection id="features" title={t('project.features')}>
@@ -139,15 +153,15 @@ export function ProjectDetail({ project }: { project: Project }) {
         <div className="space-y-6">
           {project.troubleshooting.map((item) => (
             <div key={item.issue} className="border-border bg-card rounded-2xl border p-6">
-              <h3 className="font-semibold">{item.issue}</h3>
+              <h3 className="text-xl font-bold tracking-tight">{item.issue}</h3>
               <dl className="mt-4 space-y-4 text-sm leading-relaxed">
                 <div>
-                  <dt className="text-destructive font-mono text-xs">{t('project.problem')}</dt>
-                  <dd className="text-muted-foreground mt-1">{item.problem}</dd>
+                  <dt className="text-destructive font-mono text-xs tracking-widest">{t('project.problem')}</dt>
+                  <dd className="text-muted-foreground mt-2">{item.problem}</dd>
                 </div>
                 <div>
-                  <dt className="text-primary font-mono text-xs">{t('project.solution')}</dt>
-                  <dd className="text-muted-foreground mt-1">{item.solution}</dd>
+                  <dt className="text-primary font-mono text-xs tracking-widest">{t('project.solution')}</dt>
+                  <dd className="mt-2">{item.solution}</dd>
                 </div>
               </dl>
             </div>
@@ -156,7 +170,7 @@ export function ProjectDetail({ project }: { project: Project }) {
       </DetailSection>
 
       <DetailSection id="review" title={t('project.review')}>
-        <BulletList items={project.review} />
+        <Paragraphs items={project.review} />
       </DetailSection>
     </article>
   );

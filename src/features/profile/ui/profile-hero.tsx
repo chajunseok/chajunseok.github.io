@@ -13,7 +13,7 @@ export function ProfileHero() {
 
   return (
     <section aria-labelledby="hero-title" className="flex min-h-[70vh] flex-col justify-center">
-      <p className={`${enter} text-primary text-base font-medium`}>{t('home.greeting')}</p>
+      <p className={`${enter} text-muted-foreground text-lg`}>{t('home.greeting')}</p>
       <h1
         id="hero-title"
         className={`${enter} from-foreground to-muted-foreground mt-4 bg-gradient-to-br bg-clip-text text-6xl font-extrabold tracking-tight text-transparent [animation-delay:100ms] md:text-8xl`}
