@@ -49,9 +49,9 @@ We'll know we're right when **GA4 기준 프로젝트 상세 조회율이 리디
 | --- | ------------------ | -------------------------------------------------------------- | ----------- | ------------------------------------------ |
 | 1   | 아키텍처 기반      | 새 구조·도구 위에서 빈 화면 4개가 라우팅·언어 전환과 함께 동작 | complete    | —                                          |
 | 2   | 데이터 이전        | 프로젝트·프로필·기술 데이터가 타입과 함께 새 구조에 존재       | complete    | —                                          |
-| 3   | 핵심 화면 리디자인 | 방문자가 새 디자인의 Home·Projects·상세·Contact를 사용         | in-progress | `.claude/plans/portfolio-redesign.plan.md` |
-| 4   | Playground 이식    | 26개 체험 항목이 새 디자인 안에서 기존과 같이 동작             | in-progress | `.claude/plans/playground-port.plan.md`    |
-| 5   | 정리·출시          | 기존 코드 제거, README 갱신, 지표 목표 확인 후 main 배포       | pending     | —                                          |
+| 3   | 핵심 화면 리디자인 | 방문자가 새 디자인의 Home·Projects·상세·Contact를 사용         | complete    | `.claude/plans/portfolio-redesign.plan.md` |
+| 4   | Playground 이식    | 26개 체험 항목이 새 디자인 안에서 기존과 같이 동작             | complete    | `.claude/plans/playground-port.plan.md`    |
+| 5   | 정리·출시          | 기존 코드 제거, README 갱신, 지표 목표 확인 후 main 배포       | in-progress | `.claude/plans/release-cleanup.plan.md`    |
 
 ## Open Questions
 
@@ -60,6 +60,9 @@ We'll know we're right when **GA4 기준 프로젝트 상세 조회율이 리디
 - [ ] Playground 26개 중 인터랙티브 디자인과 톤이 맞지 않는 항목의 처리(그대로 이식 vs 재디자인).
 - [ ] 인터랙티브 모션이 Lighthouse Performance 90+와 충돌할 경우 우선순위.
 - [x] 1·2단계 결과의 커밋 시점 — redesign 브랜치 `df12fa7`로 커밋 (2026-09-21).
+- [ ] Playwright E2E(3 시나리오) 미실행 — chromium 다운로드가 이 네트워크에서 타임아웃. 같은 흐름은 실제 브라우저(DevTools)로 확인함. 다른 네트워크에서 `npx playwright install chromium && npm run test:e2e` 재시도.
+- [ ] README 스크린샷은 preview PNG 4장(2026-09-22) — 배포 후 GIF로 교체 여부.
+- [ ] 배포본 Lighthouse Performance 점수 확인 (로컬 trace: LCP 1.73s, CLS 0 / mobile·4x CPU·Slow 4G).
 
 ## Risks
 

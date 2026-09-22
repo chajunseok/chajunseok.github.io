@@ -57,7 +57,6 @@ src/
     ui/ · hooks/ · utils/  # 플랫
     i18n/                  # ko/en 리소스 + init
   configs/ · styles/ · types/ · test/
-legacy/src/                # 리디자인 전 코드 — 이식 참고용, 빌드·린트 제외. 이식 끝나면 삭제
 ```
 
 ### 화면 등록

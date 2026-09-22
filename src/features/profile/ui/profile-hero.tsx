@@ -5,7 +5,8 @@ import { Badge, Button } from '@/shared/ui';
 import { profile } from '../model/profile';
 
 // 첫 화면(LCP)이라 JS 모션 청크를 기다리지 않도록 CSS 애니메이션으로 순차 등장시킨다.
-const enter = 'animate-in fade-in slide-in-from-bottom-6 fill-mode-both duration-700 ease-out';
+// fade-in은 쓰지 않는다 — opacity 0으로 시작하면 LCP 판정이 애니메이션 뒤로 밀린다.
+const enter = 'animate-in slide-in-from-bottom-6 fill-mode-both duration-700 ease-out';
 
 export function ProfileHero() {
   const { t } = useTranslation();
