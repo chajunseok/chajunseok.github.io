@@ -1,0 +1,1 @@
+import{$ as e,z as t}from"./vendor-GvbaF9Gl.js";import{m as n}from"./shared-BOjfCqN-.js";import{n as r}from"./playground-BnBVzNX2.js";var i=e();function a(){let{t:e}=t(`playground`);return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n,{as:`h1`,eyebrow:e(`eyebrow`),title:e(`title`),description:e(`description`)}),(0,i.jsx)(r,{})]})}export{a as default};
