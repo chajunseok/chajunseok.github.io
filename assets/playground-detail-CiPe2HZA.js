@@ -1,1 +1,0 @@
-import{$ as e,K as t,Z as n}from"./vendor-GvbaF9Gl.js";import{C as r}from"./shared-CDFciYAt.js";import{r as i,t as a}from"./playground-DBU6JwE3.js";var o=e();function s(){let{demoId:e=``}=n(),s=i(e);return s?(0,o.jsx)(a,{demo:s}):(0,o.jsx)(t,{to:r(`playground`),replace:!0})}export{s as default};

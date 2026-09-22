@@ -1,0 +1,1 @@
+import{ut as e,wt as t}from"./vendor-MyB3MzJj.js";import{m as n}from"./shared-D8Ezk4g5.js";import{t as r}from"./project-CRSA2loq.js";var i=t();function a(){let{t}=e();return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n,{as:`h1`,eyebrow:t(`project.eyebrow`),title:t(`nav.projects`),description:t(`project.description`)}),(0,i.jsx)(r,{})]})}export{a as default};

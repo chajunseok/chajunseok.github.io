@@ -1,1 +1,0 @@
-import{$ as e,K as t,Z as n}from"./vendor-GvbaF9Gl.js";import{C as r}from"./shared-CDFciYAt.js";import{n as i,r as a}from"./project-Bcle7GU_.js";var o=e();function s(){let{projectId:e=``}=n(),s=a(e);return s?(0,o.jsx)(i,{project:s}):(0,o.jsx)(t,{to:r(`projects`),replace:!0})}export{s as default};

@@ -1,1 +1,0 @@
-import{$ as e}from"./vendor-GvbaF9Gl.js";import{y as t}from"./shared-CDFciYAt.js";var n=e();function r({className:e,...r}){return(0,n.jsx)(`div`,{className:t(`border-border bg-card/60 flex min-h-[400px] items-center justify-center rounded-2xl border p-8`,e),...r})}export{r as t};
