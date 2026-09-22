@@ -1,0 +1,1 @@
+import{St as e,_t as t,wt as n}from"./vendor-MyB3MzJj.js";import{C as r}from"./shared-B5QVvd-L.js";import{n as i,r as a}from"./project-BvdARTLo.js";var o=n();function s(){let{projectId:n=``}=e(),s=a(n);return s?(0,o.jsx)(i,{project:s}):(0,o.jsx)(t,{to:r(`projects`),replace:!0})}export{s as default};

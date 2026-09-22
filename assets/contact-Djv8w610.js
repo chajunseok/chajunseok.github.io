@@ -1,1 +1,0 @@
-import{ut as e,wt as t}from"./vendor-MyB3MzJj.js";import{m as n,s as r}from"./shared-D8Ezk4g5.js";var i=t();function a(){let{t}=e();return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n,{as:`h1`,eyebrow:`CONTACT`,title:t(`nav.contact`),description:t(`contact.description`)}),(0,i.jsx)(r,{})]})}export{a as default};

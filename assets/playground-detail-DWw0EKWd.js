@@ -1,0 +1,1 @@
+import{St as e,_t as t,wt as n}from"./vendor-MyB3MzJj.js";import{C as r}from"./shared-B5QVvd-L.js";import{r as i,t as a}from"./playground-LDPaVtTH.js";var o=n();function s(){let{demoId:n=``}=e(),s=i(n);return s?(0,o.jsx)(a,{demo:s}):(0,o.jsx)(t,{to:r(`playground`),replace:!0})}export{s as default};
