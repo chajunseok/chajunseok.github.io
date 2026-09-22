@@ -7,13 +7,13 @@ export function findProject(id: string) {
 export const projects: Project[] = [
   {
     id: 'interface-manager-console',
-    title: '인터페이스 관리 콘솔 프론트엔드 재구축',
+    title: '인터페이스 관리 콘솔 재구축 (프론트엔드 · 백엔드 API)',
     serviceType: '웹서비스 (사내 솔루션 관리자 콘솔)',
     period: '2026.08 - 2026.09 (7주, 진행 중)',
-    team: '프론트엔드 4명 (+ 백엔드 별도)',
+    team: '프론트엔드 4명 · 백엔드 4명 (양쪽 모두 참여)',
     organization: '재직 중인 회사 (금융 IT 솔루션)',
     description:
-      '금융권 인터페이스(EAI/MCI) 관리 시스템의 관리자 콘솔 프론트엔드를 React 19 + TypeScript 기반으로 재구축한 프로젝트입니다. 라우터 없는 MDI 탭 셸과 계층형 아키텍처·디자인시스템의 초기 골격을 세우고, 대용량 로그 조회 화면과 공용 위젯을 담당했습니다.',
+      '금융권 인터페이스(EAI/MCI) 관리 시스템의 관리자 콘솔을 React 19 + TypeScript 프론트엔드와 Spring Boot 백엔드로 재구축한 프로젝트입니다. 프론트에서는 라우터 없는 MDI 탭 셸과 계층형 아키텍처·디자인시스템의 초기 골격을 세우고, 백엔드에서는 거래로그·배치·모듈/인스턴스 관리 등 담당 화면의 API를 직접 구현해 화면과 API를 한 사람이 끝까지 책임지는 방식으로 진행했습니다.',
     overview: [
       '이전 세대 관리 콘솔을 새 아키텍처로 다시 구축하는 프로젝트로, 40여 개의 업무 화면(채널·인스턴스·플로우 관리, 거래·오류 로그 조회, 사용자·권한·메뉴 관리 등)을 React 19 + TypeScript + Vite 위에 재작성했습니다.',
       '보안 요건상 URL 라우터를 쓰지 않고, 탭 기반 MDI(Multiple Document Interface) 셸 안에서 화면을 여닫고 분할하는 구조를 채택했습니다. 페이지 폴더를 만들면 자동 등록되어 별도 라우팅 코드가 필요 없습니다.',
@@ -29,6 +29,8 @@ export const projects: Project[] = [
       'Zustand',
       'Vitest + Testing Library + Playwright',
       'Storybook + MSW',
+      'Spring Boot + JPA / QueryDSL',
+      'Spring Security (JWT) + STOMP WebSocket',
     ],
     thumbnail: '/assets/projects/interface-manager-console.svg',
     isMobile: false,
@@ -43,6 +45,8 @@ export const projects: Project[] = [
       '거래 로그 화면군: 온라인·배치 거래로그, 오류로그, 배치 실행이력 — 조회기간 시각 조건, 검색조건·컬럼 구성, 상세 팝업의 처리 단계 파이프라인·타임라인·전문 뷰어',
       '등록관리 화면군: 모듈·인스턴스 관리(노드 매핑, EAV 설정행 편집 위젯, 로그레벨 변경), 배치 프로그램 관리, 공지 게시판, WEB 로그 관리',
       '시스템 코드 캐시 전체 동기화 위젯, WebSocket(STOMP) 구독 훅, 헤더 테마 변경 팝업, 홈 화면 그룹 카드·즐겨찾기 레이아웃',
+      '백엔드 API: 온라인·배치 거래로그와 오류로그 조회(검색조건·컬럼 구성, 상세·전문·엑셀), 배치 프로그램 정의 CRUD·옵션·즉시 실행·실행이력, 모듈·인스턴스 관리(노드 단위 구성 조회·일괄 저장, 로그레벨 변경, 기동 엔진으로 구성 전달)',
+      '백엔드 공용 기능: 캐시 전체 동기화 API, STOMP WebSocket 인프라, 공통 조회 팝업 API, 공지게시판·WEB 로그 관리 API(민감정보 마스킹), 메뉴 아이콘 정적 리소스, 테마 저장 API',
     ],
     techReasons: {
       'React 19 + TypeScript':
@@ -57,8 +61,15 @@ export const projects: Project[] = [
         'DataTable·검색폼·모달처럼 수십 개 화면이 공유하는 위젯은 작은 결함이 전 화면으로 번지므로, 회귀 테스트를 pre-push 훅에서 강제했습니다. 로그인부터 탭 오픈까지의 핵심 흐름은 Playwright E2E로 지켰습니다.',
       'Storybook + MSW':
         '원자 UI는 스토리를 필수로 두어 디자이너·동료가 화면 없이도 상태별 모양을 확인하게 했고, 백엔드가 준비되지 않은 도메인은 MSW 핸들러로 먼저 화면을 완성한 뒤 실제 API가 붙으면 핸들러만 제거하는 흐름으로 개발 병목을 줄였습니다.',
+      'Spring Boot + JPA / QueryDSL':
+        '거래로그처럼 검색조건·정렬·기간이 화면마다 다른 조회는 QueryDSL로 조건을 조합해 타입 안전하게 만들고, 조회 트랜잭션 경계는 facade 계층에 두어 서비스가 도메인 로직에만 집중하도록 나눴습니다. DDL이 버전 단위로 바뀌는 프로젝트라 엔티티 변경마다 회귀 테스트(정렬·경계·상한)를 함께 추가했습니다.',
+      'Spring Security (JWT) + STOMP WebSocket':
+        '액세스/리프레시 토큰 기반 인증에 권한 애노테이션으로 화면·버튼 권한을 API 단에서 다시 검증하고, 리프레시 쿠키는 Secure 속성과 유효기간을 설정으로 뺐습니다. 기동 상태·캐시 동기화 진행처럼 화면이 기다려야 하는 이벤트는 STOMP WebSocket으로 밀어 주는 인프라를 만들어 프론트의 구독 훅과 짝을 맞췄습니다.',
     },
     roles: [
+      '프론트엔드와 백엔드를 함께 맡아, 담당 화면군(거래로그·배치·모듈/인스턴스·공지·WEB 로그)은 API 설계부터 화면까지 한 사람이 끝까지 구현 — 백엔드 저장소에 약 80개 커밋',
+      '백엔드: 온라인·배치 거래로그·오류로그 조회 API(검색조건·컬럼 구성, 시각 조건, 상세·전문·엑셀), 배치 프로그램 CRUD·옵션·즉시 실행·실행이력 API와 웹 배치 스케줄 동기화 컴포넌트 분리, 모듈·인스턴스 관리 API(노드 단위 구성, 로그레벨 변경, 엔진 구성 전달)',
+      '백엔드 공용: 캐시 전체 동기화 API와 가이드 문서, STOMP WebSocket 인프라, 공통 조회 팝업 API, 공지게시판·WEB 로그 관리 API, 권한 애노테이션·Refresh 쿠키 Secure 설정 등 보안 보강, DDL 버전 변경 대응과 회귀 테스트',
       '프로젝트 초기 세팅과 아키텍처 원칙 수립: Vite + React 19 + TS strict 환경, 디자인 토큰·SVG 파이프라인, 계층 의존 규칙(shared → features 금지 등)을 ESLint no-restricted-imports로 강제, 아키텍처 가이드 문서 작성',
       '디자인시스템 이식: Radix 기반 원자 UI 20여 종과 Storybook 스토리, DataTable·Pagination·FormField·모달 큐·로더·엑셀 다운로드 등 공용 위젯 구축',
       'MDI 셸 코어 설계·구현: 탭 스토어(MRU 복귀·고정·한도), 분할 배치 스토어, 탭바·사이드바 상호작용(단축키·드래그·검색·즐겨찾기), 화면 분할 편집기와 드래그 스냅',
@@ -267,12 +278,12 @@ export const projects: Project[] = [
   {
     id: 'interface-monitoring-dashboard',
     title: '인터페이스 미들웨어 실시간 모니터링 대시보드',
-    serviceType: '웹서비스 (사내 솔루션 프론트엔드)',
-    period: '2026.03 - 2026.07 (약 4개월)',
-    team: '프론트엔드 2명 (백엔드 팀과 협업)',
+    serviceType: '웹서비스 (사내 솔루션 모니터링)',
+    period: '2026.03 - 2026.08 (약 5개월)',
+    team: '프론트엔드 2명 · 백엔드 팀 (백엔드 TPS·브로드캐스트 기능 참여)',
     organization: '재직 중인 회사 (금융 IT 솔루션)',
     description:
-      '금융권 인터페이스 미들웨어의 거래·세션·시스템 자원을 실시간으로 관찰하는 모니터링 대시보드입니다. WebSocket(STOMP) 스트림과 REST 통계를 결합해 TPS·응답시간·오류·지연을 한 화면에서 추적하고, 알림 룰·웹훅·데이터 수집 설정까지 운영자가 직접 관리할 수 있도록 구현했습니다.',
+      '금융권 인터페이스 미들웨어의 거래·세션·시스템 자원을 실시간으로 관찰하는 모니터링 대시보드입니다. WebSocket(STOMP) 스트림과 REST 통계를 결합해 TPS·응답시간·오류·지연을 한 화면에서 추적하고, 알림 룰·웹훅·데이터 수집 설정까지 운영자가 직접 관리할 수 있도록 구현했습니다. 프론트엔드 전반과 함께 백엔드의 TPS 수집·브로드캐스트 기능도 직접 구현했습니다.',
     overview: [
       '금융권 고객사에 납품되는 인터페이스 미들웨어(게이트웨이)의 운영 상태를 실시간으로 확인하기 위한 관제 화면입니다.',
       '채널·인터페이스 단위 거래 대시보드, TPS 실시간 위젯, 세션 모니터링, 시스템 자원 대시보드, 시간·일·월 통계, 알림 로그 등 운영자가 필요로 하는 화면을 하나의 SPA로 제공합니다.',
@@ -287,6 +298,7 @@ export const projects: Project[] = [
       'WebSocket (STOMP)',
       'ECharts',
       'Orval (OpenAPI 코드 생성)',
+      'Spring Boot + Redis',
     ],
     thumbnail: '/assets/projects/interface-monitoring-dashboard.svg',
     isMobile: false,
@@ -315,8 +327,11 @@ export const projects: Project[] = [
         '시계열 라인·영역·통계 차트를 대량의 점으로 그려야 했고, setOption 기반의 명령형 갱신이 가능해 React 리렌더 없이 고빈도 데이터를 반영하기에 적합해 선택함.',
       'Orval (OpenAPI 코드 생성)':
         '백엔드 Swagger 명세를 OpenAPI 3로 변환한 뒤 TypeScript 타입과 Zod 스키마를 자동 생성해, DTO 변경 시 수작업 타입 수정 없이 계약 드리프트를 빌드 단계에서 감지하기 위해 도입함.',
+      'Spring Boot + Redis':
+        '초당 TPS는 요청마다 DB에 쓰기엔 부하가 커서 백엔드에서 버퍼에 모았다가 주기적으로 upsert하고, 화면에는 STOMP 브로드캐스트로 밀어 주는 구조를 잡았습니다. 미들웨어 노드가 올리는 지표는 Redis(클러스터 포함)에서 읽어 파싱하며, 프론트를 함께 만들었기 때문에 페이로드 형태를 화면이 쓰기 쉬운 단위로 단순화할 수 있었습니다.',
     },
     roles: [
+      '백엔드: TPS 모니터 기능 신규 구현 — 초당 TPS 수집 버퍼와 주기 DB upsert, 적재 정합성 오류 수정, Redis 클러스터 설정과 TPS 파싱 분기, TPS 브로드캐스트 서비스 개선과 단위 테스트, Kafka 클러스터 요약 브로드캐스트, 무응답 거래 보정 테스트, 알림·Redis 서비스 로그·설정 정리',
       '거래 대시보드를 채널/인터페이스 단위로 분리하고 그룹 편집, 조회 구간 선택, 응답시간 정합성 검증, 지연 감지, 오류 건수 표시를 구현',
       'TPS 실시간 모니터링 위젯 설계·구현: STOMP 구독, 링 버퍼 기반 오늘/어제 비교 차트, 누락 분 0 채움, 채널 검색·라벨링',
       '세션 모니터링 화면 신규 개발: 노드·인스턴스·채널 계층 UI, 연결 유지/폴링/동기·비동기 상태 표시, 세션 해제 API 연동, 즐겨찾기',
