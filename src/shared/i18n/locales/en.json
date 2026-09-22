@@ -14,7 +14,8 @@
     "toggle": "한국어"
   },
   "page": {
-    "wip": "Redesign in progress."
+    "wip": "Redesign in progress.",
+    "loadFailed": "Couldn't load this page. Please refresh."
   },
   "home": {
     "greeting": "Hi, I'm",

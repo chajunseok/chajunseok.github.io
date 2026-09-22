@@ -37,7 +37,8 @@
 | 플랫 모듈 | `ui` · `utils` · `hooks` · `i18n` | 파일 나열                                | 불필요   |
 
 `shared/ui/index.ts`는 예외적으로 원자 컴포넌트를 모아 export한다. `shared/i18n/index.ts`는
-배럴이 아니라 `i18next.init()`이 든 실제 모듈이다.
+배럴이 아니라 `i18next.init()`이 든 실제 모듈이다. `shared/widget/error-boundary.tsx`처럼 `index.ts` 없는
+단일 파일 위젯은 파일 경로 그대로 import한다(기준 레포와 같은 규칙).
 
 ---
 

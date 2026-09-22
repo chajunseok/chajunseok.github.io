@@ -24,6 +24,7 @@ export default function MusicDemo() {
   const { t } = useTranslation('playground');
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioLoaded, setAudioLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -36,6 +37,7 @@ export default function MusicDemo() {
       console.error('Audio error:', audio.error);
       setIsPlaying(false);
       setAudioLoaded(false);
+      setHasError(true);
     };
     const onEnded = () => setIsPlaying(false);
 
@@ -70,11 +72,13 @@ export default function MusicDemo() {
     }
   };
 
-  const status = !audioLoaded
-    ? t('demos.music.loadingAudio')
-    : isPlaying
-      ? t('demos.music.playing')
-      : t('demos.music.idle');
+  const status = hasError
+    ? t('demos.music.failed')
+    : !audioLoaded
+      ? t('demos.music.loadingAudio')
+      : isPlaying
+        ? t('demos.music.playing')
+        : t('demos.music.idle');
 
   return (
     <DemoStage className="flex-col">

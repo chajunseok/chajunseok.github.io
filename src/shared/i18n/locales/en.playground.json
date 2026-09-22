@@ -19,7 +19,8 @@
       "pause": "Pause",
       "loadingAudio": "Loading audio...",
       "playing": "Now playing...",
-      "idle": "Click to play"
+      "idle": "Click to play",
+      "failed": "Couldn't load the audio."
     },
     "hover": {
       "title": "Hover Animation",
@@ -139,7 +140,8 @@
       "search": "Search",
       "reset": "Reset",
       "filtering": "Filtering...",
-      "itemTitle": "Item {{n}}"
+      "itemTitle": "Item {{n}}",
+      "noResults": "No items match this range."
     },
     "select-filter": {
       "title": "Select Filter",

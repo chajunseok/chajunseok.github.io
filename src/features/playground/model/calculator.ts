@@ -33,9 +33,10 @@ function compute(a: number, b: number, operator: Operator) {
 function performOperation(state: CalculatorState, next: Operator | null): CalculatorState {
   const value = parseFloat(state.display);
   let { prevValue, display } = state;
-  if (prevValue === null) {
+  // 대기 중인 연산자가 없으면('=' 직후 포함) 지금 값이 새 시작점이다.
+  if (prevValue === null || state.operator === null) {
     prevValue = value;
-  } else if (state.operator) {
+  } else {
     prevValue = compute(prevValue, value, state.operator);
     display = String(prevValue);
   }

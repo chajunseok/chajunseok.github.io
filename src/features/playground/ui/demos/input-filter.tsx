@@ -122,7 +122,7 @@ export default function InputFilterDemo() {
         </AnimatePresence>
 
         <m.div layout className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
-          {(filteredItems.length > 0 || searchTerm ? filteredItems : items).map((item) => (
+          {(searchTerm && applied ? filteredItems : items).map((item) => (
             <m.div
               key={item.id}
               layout

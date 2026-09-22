@@ -15,6 +15,10 @@ test('등호 뒤 새 연산은 결과값에서 이어진다', () => {
   expect(run('2+3=+1=').display).toBe('6');
 });
 
+test('등호 뒤 새 숫자를 치면 그 숫자에서 새로 시작한다', () => {
+  expect(run('2+3=7+1=').display).toBe('8');
+});
+
 test('소수점은 한 번만 붙고, 연산 직후에는 0.으로 시작한다', () => {
   expect(run('1..5').display).toBe('1.5');
   expect(run('1+.').display).toBe('0.');

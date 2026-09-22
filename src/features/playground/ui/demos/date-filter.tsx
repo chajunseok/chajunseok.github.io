@@ -8,7 +8,9 @@ const FILTER_DELAY_MS = 500;
 
 type Item = { id: number; date: string; color: string };
 
-const toIsoDate = (date: Date) => date.toISOString().split('T')[0];
+// 로컬 날짜 기준 YYYY-MM-DD — toISOString()은 UTC라 자정 근처 날짜가 하루 어긋난다.
+const toIsoDate = (date: Date) =>
+  `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 
 /** 오늘 기준 한 달 전후 사이의 무작위 날짜 샘플. */
 function generateSampleData(): Item[] {
@@ -32,7 +34,8 @@ export default function DateFilterDemo() {
   const [items] = useState(generateSampleData);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [filteredItems, setFilteredItems] = useState<Item[]>([]);
+  // null = 필터 없음. 빈 배열은 "조건에 맞는 항목 없음"이라 전체 목록과 구분한다.
+  const [filteredItems, setFilteredItems] = useState<Item[] | null>(null);
   const [isFiltering, setIsFiltering] = useState(false);
 
   const handleFilter = () => {
@@ -50,7 +53,7 @@ export default function DateFilterDemo() {
   const clearFilter = () => {
     setStartDate('');
     setEndDate('');
-    setFilteredItems([]);
+    setFilteredItems(null);
   };
 
   return (
@@ -120,8 +123,14 @@ export default function DateFilterDemo() {
           )}
         </AnimatePresence>
 
+        {filteredItems?.length === 0 && !isFiltering && (
+          <p role="status" className="text-muted-foreground mb-4 text-center">
+            {t('demos.date-filter.noResults')}
+          </p>
+        )}
+
         <m.div layout className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-4">
-          {(filteredItems.length > 0 ? filteredItems : items).map((item) => (
+          {(filteredItems ?? items).map((item) => (
             <m.div
               key={item.id}
               layout

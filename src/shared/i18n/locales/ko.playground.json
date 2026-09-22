@@ -19,7 +19,8 @@
       "pause": "일시정지",
       "loadingAudio": "오디오 로딩중...",
       "playing": "음악 재생중...",
-      "idle": "클릭하여 재생"
+      "idle": "클릭하여 재생",
+      "failed": "오디오를 불러오지 못했습니다."
     },
     "hover": {
       "title": "Hover Animation",
@@ -139,7 +140,8 @@
       "search": "검색",
       "reset": "초기화",
       "filtering": "필터링 중...",
-      "itemTitle": "Item {{n}}"
+      "itemTitle": "Item {{n}}",
+      "noResults": "조건에 맞는 항목이 없습니다."
     },
     "select-filter": {
       "title": "Select 필터",
